@@ -26,11 +26,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MattCrl/pokeMarket.git"
+    "url": "git+https://github.com/MattCrl/adopte-un-pokemon.git"
   },
   "author": "",
   "bugs": {
-    "url": "https://github.com/MattCrl/pokeMarket/issues"
+    "url": "https://github.com/MattCrl/adopte-un-pokemon/issues"
   },
-  "homepage": "https://github.com/MattCrl/pokeMarket#readme"
+  "homepage": "https://github.com/MattCrl/adopte-un-pokemon#readme"
 }
