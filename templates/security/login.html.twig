@@ -7,21 +7,22 @@
                 <div class="alert alert-{{ label }}">
                     {{ message }}
                 </div>
+            {% endfor %}
         {% endfor %}
-    {% endfor %}
 
-    {% if error %}
-        <div class="alert alert-danger">
-            <ul class="list-unstyled mb-0">
-                <li><span class="initialism form-error-icon badge badge-danger">Error</span>
-                    <span class="form-error-message">{{ error.messageKey|trans(error.messageData, 'security') }}</span>
-                </li>
-            </ul>
-        </div>
-    {% endif %}
-    {{form(form)}}
+        {% if error %}
+            <div class="alert alert-danger">
+                <ul class="list-unstyled mb-0">
+                    <li><span class="initialism form-error-icon badge badge-danger">Error</span>
+                        <span class="form-error-message">{{ error.messageKey|trans(error.messageData, 'security') }}</span>
+                    </li>
+                </ul>
+            </div>
+        {% endif %}
+        {{form(form)}}
 
         <a href="{{ path('app_index') }}" class="btn btn-primary btn-block">Retour à la page d'accueil</a>
 
+    <!-- End container -->
     </div>
 {% endblock %}
