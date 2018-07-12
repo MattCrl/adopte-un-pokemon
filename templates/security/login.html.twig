@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/auth.css') }}">
+{% endblock %}
 {% block body %}
-    <div class="container">
-        <h1 class="mt-4">Connexion</h1>
+    <div class="container form-container">
+        <div class="test-blur"></div>
         {% for label, messages in app.flashes %}
             {% for message in messages %}
                 <div class="alert alert-{{ label }}">
@@ -20,10 +22,18 @@
                 </ul>
             </div>
         {% endif %}
-        {{form(form)}}
 
-        <a href="{{ path('app_index') }}" class="btn btn-primary btn-block">Retour à la page d'accueil</a>
+        {{ form_start(form) }}
 
+        {{ form_label (form._username, 'EMAIL') }}
+        {{ form_widget (form._username, {'attr': {'placeholder': 'example@mail.fr'}}) }}
+
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+
+        <form action="{{ path('app_index') }}">
+            <button type="submit" class="btn btn-custom btn-block">Retour à la page d'accueil</button>
+        </form>
     <!-- End container -->
     </div>
 {% endblock %}
