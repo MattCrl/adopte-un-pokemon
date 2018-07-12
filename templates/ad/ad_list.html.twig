@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="container">
-        <h1>Les annonces</h1>
+        <h1 class="mt-4">Les annonces</h1>
         <ul>
             {% for ad in ads %}
                 <li><a href="{{ path('ad_show', {'id' : ad.id}) }}">{{ ad.title }}</a></li>
