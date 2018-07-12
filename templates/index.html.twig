@@ -12,14 +12,6 @@
             {% endfor %}
         {% endfor %}
 
-        {% if app.user %}
-            <h1>Bonjour {{ app.user.firstName }} {{ app.user.lastName }}</h1>
-            <a href="{{ path('logout') }}" class="btn btn-primary">Logout</a>
-        {% else %}
-            <a href="{{ path('login') }}" class="btn btn-primary">Connexion</a>
-            <a href="{{ path('register') }}" class="btn btn-primary">S'inscrire</a>
-        {% endif %}
-
         <h1>Adopte un Pokemon</h1>
     </div>
 
