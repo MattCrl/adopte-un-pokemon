@@ -18,11 +18,11 @@
 
         <div class="row">
         {% for ad in ads %}
-            <div class="card col-3 m-2" style="width: 18rem;">
+            <div class="card col-3 m-2">
                 <img class="card-img-top" src="https://i.pinimg.com/originals/06/13/9a/06139af3e366eca68647ba0f9eb6a123.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title text-center">{{ ad.title }}</h5>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="{{ path('ad_show', {'id': ad.id}) }}" class="btn btn-primary">Voir l'annonce</a>
                 </div>
             </div>
         {% endfor %}

@@ -43,6 +43,11 @@ class Location
         $this->ads = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->getTown();
+    }
+
     public function getId()
     {
         return $this->id;
