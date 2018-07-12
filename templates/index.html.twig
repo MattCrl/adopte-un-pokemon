@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <header class="header bg-primary">
+    <header class="header">
 
     </header>
     <div class="container">
@@ -13,20 +13,26 @@
                 </div>
             {% endfor %}
         {% endfor %}
+    </div>
 
-        <h1 class="text-center mt-5">EN VENTE ACTUELLEMENT</h1>
+        <section class="actual-ad pt-5 pb-5">
+        <div class="container">
+        <h1 class="text-center pb-4">EN VENTE ACTUELLEMENT</h1>
 
         <div class="row">
         {% for ad in ads %}
-            <div class="card col-3 m-2" style="width: 18rem;">
-                <img class="card-img-top" src="https://i.pinimg.com/originals/06/13/9a/06139af3e366eca68647ba0f9eb6a123.jpg" alt="Card image cap">
+            <div class="card col-12 col-sm-6 col-md-4 col-lg-3  pt-3 cards-custom">
+                <img class="card-img-top" src="http://moziru.com/images/drawn-pikachu-vector-20.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title text-center">{{ ad.title }}</h5>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title text-center font-weight-bold">{{ ad.title|slice(0, 15) }}...</h5>
+                    <p class="text-center">{{ ad.description|slice(0, 50) }}...</p>
+                    <a href="{{ path('ad_show', {'id': ad.id}) }}" class="btn btn-dark btn-block">Voir l'annonce</a>
                 </div>
             </div>
         {% endfor %}
         </div>
+
+        </section>
     </div>
 
 {% endblock %}

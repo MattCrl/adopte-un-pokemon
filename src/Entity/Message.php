@@ -21,6 +21,16 @@ class Message
      */
     private $content;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ad", inversedBy="messages")
+     */
+    private $ad;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="messages")
+     */
+    private $user;
+
     public function getId()
     {
         return $this->id;
@@ -34,6 +44,30 @@ class Message
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getAd(): ?Ad
+    {
+        return $this->ad;
+    }
+
+    public function setAd(?Ad $ad): self
+    {
+        $this->ad = $ad;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

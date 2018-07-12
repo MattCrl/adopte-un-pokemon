@@ -1,0 +1,30 @@
+body {
+  background-image: url("https://i.pinimg.com/originals/81/7e/c2/817ec2cfbc383e10a0562f2fdfebfcab.jpg");
+  color: white;
+}
+
+.form-container {
+  width: 400px;
+  padding: 30px 40px 40px 40px;
+  margin-top: 50px;
+  box-shadow: 1px 1px 18px #292929;
+  border: 1px solid #ffce41;
+}
+
+.btn-custom {
+  background-color: #ffce41;
+  color: #292929;
+  text-transform: uppercase;
+  &:hover {
+    background-color: #ffc10d;
+  }
+}
+
+.btn-margin {
+  margin-top: 32px;
+}
+
+label {
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px #292929;
+}
