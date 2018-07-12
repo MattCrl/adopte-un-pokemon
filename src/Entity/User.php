@@ -52,6 +52,21 @@ class User implements UserInterface, \Serializable {
      */
     private $roles = array();
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $firstName;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $lastName;
+
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+    private $nickName;
+
     public function __construct() {
         $this->isActive = true;
         // may not be needed, see section on salt below
@@ -145,6 +160,42 @@ class User implements UserInterface, \Serializable {
 
     function setIsActive($isActive) {
         $this->isActive = $isActive;
+    }
+
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    public function setFirstName(string $firstName): self
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    public function getLastName(): ?string
+    {
+        return $this->lastName;
+    }
+
+    public function setLastName(string $lastName): self
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    public function getNickName(): ?string
+    {
+        return $this->nickName;
+    }
+
+    public function setNickName(string $nickName): self
+    {
+        $this->nickName = $nickName;
+
+        return $this;
     }
 
 }

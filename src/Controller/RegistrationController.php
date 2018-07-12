@@ -21,26 +21,25 @@ class RegistrationController extends Controller {
      * @Route("/register", name="register")
      */
     public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder) {
-        // 1) build the form
+        // Build the form
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
-        // 2) handle the submit (will only happen on POST)
+        // Handle the submit (will only happen on POST)
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            // 3) Encode the password (you could also do this via Doctrine listener)
+            // Encode the password
             $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
-            //on active par défaut
             $user->setIsActive(true);
             //$user->addRole("ROLE_ADMIN");
             // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-            // ... do any other work - like sending them an email, etc
+            // Add some other features later if I want ...
             // maybe set a "flash" success message for the user
             $this->addFlash('success', 'Votre compte à bien été enregistré.');
-            //return $this->redirectToRoute('login');
+            return $this->redirectToRoute('login');
         }
         return $this->render('registration/register.html.twig', ['form' => $form->createView(), 'mainNavRegistration' => true, 'title' => 'Inscription']);
     }
