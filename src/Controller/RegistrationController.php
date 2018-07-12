@@ -32,12 +32,11 @@ class RegistrationController extends Controller {
             $user->setPassword($password);
             $user->setIsActive(true);
             //$user->addRole("ROLE_ADMIN");
-            // 4) save the User!
+            // save the User!
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
             // Add some other features later if I want ...
-            // maybe set a "flash" success message for the user
             $this->addFlash('success', 'Votre compte à bien été enregistré.');
             return $this->redirectToRoute('login');
         }
