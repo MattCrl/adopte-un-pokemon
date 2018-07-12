@@ -37,7 +37,7 @@ class RegistrationController extends Controller {
             $entityManager->persist($user);
             $entityManager->flush();
             // Add some other features later if I want ...
-            $this->addFlash('success', 'Votre compte à bien été enregistré.');
+            $this->addFlash('success', 'Votre compte à bien été enregistré. Vous pouvez désormais vous connecter');
             return $this->redirectToRoute('login');
         }
         return $this->render('registration/register.html.twig', ['form' => $form->createView(), 'mainNavRegistration' => true, 'title' => 'Inscription']);

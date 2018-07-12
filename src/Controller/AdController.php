@@ -1,55 +1,90 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: mattcrl
- * Date: 12/07/18
- * Time: 13:30
- */
 
 namespace App\Controller;
 
-
-
-
 use App\Entity\Ad;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use App\Form\AdType;
+use App\Repository\AdRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class AdController
- * @Route("ad")
- * @package App\Controller
+ * @Route("/ad")
  */
 class AdController extends Controller
 {
     /**
-     * @Route("/{id}", name="ad_show")
-     * @Method("GET")
+     * @Route("/", name="ad_index", methods="GET")
      */
-    public function showAction(Ad $ad)
+    public function index(AdRepository $adRepository): Response
     {
-        $em = $this->getDoctrine()->getManager();
-        $result = $em->getRepository(Ad::class)->findOneBy(['id' => $ad->getId()]);
-
-        return $this->render('ad/ad_show.html.twig', ['result' => $result]);
-
+        return $this->render('ad/index.html.twig', ['ads' => $adRepository->findAll()]);
     }
 
     /**
-     * @Route("/", name="ads_list")
-     * @Method("GET")
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/new", name="ad_new", methods="GET|POST")
      */
-    public function listAction()
+    public function new(Request $request): Response
     {
-        $em = $this->getDoctrine()->getManager();
-        $ads = $em->getRepository(Ad::class)->findAll();
+        $ad = new Ad();
+        $form = $this->createForm(AdType::class, $ad);
+        $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($ad);
+            $em->flush();
 
-        return $this->render('ad/ad_list.html.twig', ['ads' => $ads]);
+            return $this->redirectToRoute('ad_index');
+        }
+
+        return $this->render('ad/new.html.twig', [
+            'ad' => $ad,
+            'form' => $form->createView(),
+        ]);
     }
 
+    /**
+     * @Route("/{id}", name="ad_show", methods="GET")
+     */
+    public function show(Ad $ad): Response
+    {
+        return $this->render('ad/show.html.twig', ['ad' => $ad]);
+    }
 
+    /**
+     * @Route("/{id}/edit", name="ad_edit", methods="GET|POST")
+     */
+    public function edit(Request $request, Ad $ad): Response
+    {
+        $form = $this->createForm(AdType::class, $ad);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('ad_edit', ['id' => $ad->getId()]);
+        }
+
+        return $this->render('ad/edit.html.twig', [
+            'ad' => $ad,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="ad_delete", methods="DELETE")
+     */
+    public function delete(Request $request, Ad $ad): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$ad->getId(), $request->request->get('_token'))) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($ad);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('ad_index');
+    }
 }
