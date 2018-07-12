@@ -3,89 +3,148 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Table(name="user")
+ * @UniqueEntity(fields="email")
+ * @ORM\Entity()
  */
-class User
-{
+class User implements UserInterface, \Serializable {
+
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\Id
      * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
-    private $firstName;
+    private $email;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=250)
      */
-    private $lastName;
+    private $plainPassword;
 
     /**
-     * @ORM\Column(type="date")
+     * The below length depends on the "algorithm" you use for encoding
+     * the password, but this works well with bcrypt.
+     *
+     * @ORM\Column(type="string", length=64)
      */
-    private $birthDate;
+    private $password;
 
     /**
-     * @ORM\Column(type="string", length=25)
+     * @ORM\Column(name="is_active", type="boolean")
      */
-    private $nickName;
+    private $isActive;
 
-    public function getId()
-    {
+    /**
+     * @ORM\Column(name="roles", type="array")
+     */
+    private $roles = array();
+
+    public function __construct() {
+        $this->isActive = true;
+        // may not be needed, see section on salt below
+        // $this->salt = md5(uniqid('', true));
+    }
+
+    public function getUsername() {
+        return $this->email;
+    }
+
+    public function getSalt() {
+        // you *may* need a real salt depending on your encoder
+        // see section on salt below
+        return null;
+    }
+
+    public function getPassword() {
+        return $this->password;
+    }
+
+    function setPassword($password) {
+        $this->password = $password;
+    }
+
+    public function getRoles() {
+        if (empty($this->roles)) {
+            return ['ROLE_USER'];
+        }
+        return $this->roles;
+    }
+
+    function addRole($role) {
+        $this->roles[] = $role;
+    }
+
+    public function eraseCredentials() {
+
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize() {
+        return serialize(array(
+            $this->id,
+            $this->email,
+            $this->password,
+            $this->isActive,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized) {
+        list (
+            $this->id,
+            $this->email,
+            $this->password,
+            $this->isActive,
+            // see section on salt below
+            // $this->salt
+            ) = unserialize($serialized);
+    }
+
+    function getId() {
         return $this->id;
     }
 
-    public function getFirstName(): ?string
-    {
-        return $this->firstName;
+    function getEmail() {
+        return $this->email;
     }
 
-    public function setFirstName(string $firstName): self
-    {
-        $this->firstName = $firstName;
-
-        return $this;
+    function getPlainPassword() {
+        return $this->plainPassword;
     }
 
-    public function getLastName(): ?string
-    {
-        return $this->lastName;
+    function getIsActive() {
+        return $this->isActive;
     }
 
-    public function setLastName(string $lastName): self
-    {
-        $this->lastName = $lastName;
-
-        return $this;
+    function setId($id) {
+        $this->id = $id;
     }
 
-    public function getBirthDate(): ?\DateTimeInterface
-    {
-        return $this->birthDate;
+    function setEmail($email) {
+        $this->email = $email;
     }
 
-    public function setBirthDate(\DateTimeInterface $birthDate): self
-    {
-        $this->birthDate = $birthDate;
-
-        return $this;
+    function setPlainPassword($plainPassword) {
+        $this->plainPassword = $plainPassword;
     }
 
-    public function getNickName(): ?string
-    {
-        return $this->nickName;
+    function setIsActive($isActive) {
+        $this->isActive = $isActive;
     }
 
-    public function setNickName(string $nickName): self
-    {
-        $this->nickName = $nickName;
-
-        return $this;
-    }
 }
