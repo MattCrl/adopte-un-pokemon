@@ -37,5 +37,19 @@ class AdController extends Controller
 
     }
 
+    /**
+     * @Route("/", name="ads_list")
+     * @Method("GET")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function listAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $ads = $em->getRepository(Ad::class)->findAll();
+
+
+        return $this->render('ad/ad_list.html.twig', ['ads' => $ads]);
+    }
+
 
 }
