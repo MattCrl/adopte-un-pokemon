@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <header class="header bg-primary">
+
+    </header>
     <div class="container">
-        <div class="container">
 
         {% for label, messages in app.flashes %}
             {% for message in messages %}
@@ -12,15 +14,19 @@
             {% endfor %}
         {% endfor %}
 
-        {% if app.user %}
-            <h1>Bonjour {{ app.user.firstName }} {{ app.user.lastName }}</h1>
-            <a href="{{ path('logout') }}" class="btn btn-primary">Logout</a>
-        {% else %}
-            <a href="{{ path('login') }}" class="btn btn-primary">Connexion</a>
-            <a href="{{ path('register') }}" class="btn btn-primary">S'inscrire</a>
-        {% endif %}
+        <h1 class="text-center mt-5">EN VENTE ACTUELLEMENT</h1>
 
-        <h1>Adopte un Pokemon</h1>
+        <div class="row">
+        {% for ad in ads %}
+            <div class="card col-3 m-2" style="width: 18rem;">
+                <img class="card-img-top" src="https://i.pinimg.com/originals/06/13/9a/06139af3e366eca68647ba0f9eb6a123.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ ad.title }}</h5>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
     </div>
 
 {% endblock %}
