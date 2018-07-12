@@ -28,4 +28,15 @@ class AppController extends Controller
         return $this->render('index.html.twig');
     }
 
+    /**
+     * Member Homepage
+     *
+     * @Route("/member/homepage", name="app_index_member")
+     * @Method("GET")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function indexMemberAction()
+    {
+        return $this->render('index.html.twig');
+    }
 }
