@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Ad;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -25,7 +26,9 @@ class AppController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $ads = $em->getRepository(Ad::class)->findAll();
+        return $this->render('index.html.twig', ['ads' => $ads]);
     }
 
     /**
