@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -67,8 +69,20 @@ class User implements UserInterface, \Serializable {
      */
     private $nickName;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Ad", mappedBy="user")
+     */
+    private $ads;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Message", mappedBy="user")
+     */
+    private $messages;
+
     public function __construct() {
         $this->isActive = true;
+        $this->ads = new ArrayCollection();
+        $this->messages = new ArrayCollection();
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid('', true));
     }
@@ -194,6 +208,68 @@ class User implements UserInterface, \Serializable {
     public function setNickName(string $nickName): self
     {
         $this->nickName = $nickName;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Ad[]
+     */
+    public function getAds(): Collection
+    {
+        return $this->ads;
+    }
+
+    public function addAd(Ad $ad): self
+    {
+        if (!$this->ads->contains($ad)) {
+            $this->ads[] = $ad;
+            $ad->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAd(Ad $ad): self
+    {
+        if ($this->ads->contains($ad)) {
+            $this->ads->removeElement($ad);
+            // set the owning side to null (unless already changed)
+            if ($ad->getUser() === $this) {
+                $ad->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Message[]
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    public function addMessage(Message $message): self
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages[] = $message;
+            $message->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Message $message): self
+    {
+        if ($this->messages->contains($message)) {
+            $this->messages->removeElement($message);
+            // set the owning side to null (unless already changed)
+            if ($message->getUser() === $this) {
+                $message->setUser(null);
+            }
+        }
 
         return $this;
     }
