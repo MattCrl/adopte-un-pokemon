@@ -22,7 +22,19 @@
                 </ul>
             </div>
         {% endif %}
+
+        {{ form_start(form) }}
+
+        {{ form_label (form._username, 'EMAIL') }}
+        {{ form_widget (form._username, {'attr': {'placeholder': 'example@mail.fr'}}) }}
+
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+
+{#
         {{form(form)}}
+#}
+
         <form action="{{ path('app_index') }}">
             <button type="submit" class="btn btn-custom btn-block">Retour à la page d'accueil</button>
         </form>

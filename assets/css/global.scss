@@ -5,7 +5,21 @@ body {
 }
 
 .header {
-  height: 500px;
-  background-image: url("http://cdn.artwallpaperhi.com/1920x1080/20121220/pokemon%20background%20pokeball%201920x1080%20wallpaper_www.artwallpaperhi.com_93.jpg");
+  height: 600px;
+  background-image: url("https://image.ibb.co/kdePgo/pokemon_go_hd.jpg");
+  background-color: #000000;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
 
+.actual-ad {
+  background-color: #e3e3e6;
+}
+
+.cards-custom {
+  border: 1px solid #292929;
+  &:hover {
+    box-shadow: 1px 1px 5px #292929;
+  }
 }

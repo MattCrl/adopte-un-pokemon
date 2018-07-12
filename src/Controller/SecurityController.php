@@ -26,7 +26,7 @@ class SecurityController extends Controller {
         //
         $form = $this->get('form.factory')
             ->createNamedBuilder(null)
-            ->add('_username', null, ['label' => 'EMAIL'])
+            ->add('_username', null)
             ->add('_password', \Symfony\Component\Form\Extension\Core\Type\PasswordType::class, ['label' => 'MOT DE PASSE'])
             ->add('ok', \Symfony\Component\Form\Extension\Core\Type\SubmitType::class, [
                 'label' => 'Connexion',
