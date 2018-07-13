@@ -31,5 +31,4 @@ class PokemonController extends Controller
     {
         return $this->render('pokemon/show.html.twig', ['pokemon' => $pokemon]);
     }
-
 }
