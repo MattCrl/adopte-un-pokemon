@@ -19,7 +19,6 @@ class PokemonRepository extends ServiceEntityRepository
         parent::__construct($registry, Pokemon::class);
     }
 
-
     /**
      * @param $pokemon
      * @return array
@@ -35,32 +34,4 @@ class PokemonRepository extends ServiceEntityRepository
         return $qb->getResult();
     }
 
-//    /**
-//     * @return Pokemon[] Returns an array of Pokemon objects
-//     */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Pokemon
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

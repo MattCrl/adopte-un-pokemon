@@ -24,7 +24,6 @@ class StringToPokemonTransformer implements DataTransformerInterface
         $this->em = $em;
     }
 
-
     /**
      * Transform object Pokemon to string Pokemon name
      * @param $pokemon
@@ -38,7 +37,6 @@ class StringToPokemonTransformer implements DataTransformerInterface
 
         return $pokemon->getId();
     }
-
 
     /**
      * Transform string to ArrayCollection

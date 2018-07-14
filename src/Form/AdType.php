@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Ad;
-use Doctrine\Common\Collections\ArrayCollection;
 use App\Form\DataTransformer\StringToPokemonTransformer;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\AbstractType;

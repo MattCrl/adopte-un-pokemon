@@ -40,8 +40,7 @@ class PokemonController extends Controller
     {
         $repository = $pokemonRepository;
         $data = $repository->getPokemonLike($pokemon);
+
         return $this->json($data);
-
-
     }
 }
