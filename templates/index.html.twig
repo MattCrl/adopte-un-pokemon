@@ -6,6 +6,8 @@
     </header>
     <div class="container">
 
+
+
         {% for label, messages in app.flashes %}
             {% for message in messages %}
                 <div class="alert alert-{{ label }}">
@@ -17,12 +19,12 @@
 
         <section class="actual-ad pt-5 pb-5">
         <div class="container">
-        <h1 class="text-center pb-4">EN VENTE ACTUELLEMENT</h1>
+        <h1 class="text-center pb-4 text-white">EN VENTE ACTUELLEMENT</h1>
 
         <div class="row">
         {% for ad in ads %}
             <div class="card col-12 col-sm-6 col-md-4 col-lg-3  pt-3 cards-custom">
-                <img class="card-img-top" src="http://moziru.com/images/drawn-pikachu-vector-20.jpg" alt="Card image cap">
+                <img class="card-img-top" src="{{ ad.pokemon.image }}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title text-center font-weight-bold">{{ ad.title|slice(0, 15) }}...</h5>
                     <p class="text-center">{{ ad.description|slice(0, 50) }}...</p>

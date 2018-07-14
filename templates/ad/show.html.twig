@@ -8,7 +8,7 @@
         {% else %}
             <h1 class="mt-4">{{ ad.title }}</h1>
 
-            <img src="https://i.pinimg.com/originals/06/13/9a/06139af3e366eca68647ba0f9eb6a123.jpg" alt="pokemon_name">
+            <img src="{{ ad.pokemon.image }}" alt="{{ ad.pokemon.name }}">
             <h2>Description</h2>
             <p>{{ ad.description }}</p>
 
