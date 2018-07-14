@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Pokemon;
-use App\Form\PokemonType;
 use App\Repository\PokemonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,5 +29,18 @@ class PokemonController extends Controller
     public function show(Pokemon $pokemon): Response
     {
         return $this->render('pokemon/show.html.twig', ['pokemon' => $pokemon]);
+    }
+
+    /**
+     * @param Request $request
+     * @param $pokemon
+     * @Route("/list/{pokemon}", name="list-pokemon")
+     */
+    public function autoComplete(PokemonRepository $pokemonRepository, $pokemon)
+    {
+        $repository = $pokemonRepository;
+        $data = $repository->getPokemonLike($pokemon);
+
+        return $this->json($data);
     }
 }

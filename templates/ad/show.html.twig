@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
     <div class="container">
         {% if ad.isSold %}
             <h1 class="mt-4">{{ ad.title }}</h1>
@@ -14,6 +13,13 @@
             <p>{{ ad.description }}</p>
 
             <h2>Caractéristiques</h2>
+            <ul>
+                <li>{{ ad.pokemon.name }}</li>
+                <li>{{ ad.pokemon.height }}</li>
+                <li>{{ ad.pokemon.weight }}</li>
+                <li>{{ ad.pokemon.type }}</li>
+                <li>{{ ad.pokemon.ability }}</li>
+            </ul>
             <p></p>
 
             <h2>Contacter le vendeur</h2>
