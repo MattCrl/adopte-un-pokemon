@@ -6,7 +6,11 @@ body {
 
 .header {
   height: 900px;
-  background-image: url("https://image.ibb.co/kdePgo/pokemon_go_hd.jpg");
+  // background-image: url("https://image.ibb.co/kdePgo/pokemon_go_hd.jpg");
+  // background-image: url("https://hdwallsource.com/img/2014/8/pokemon-backgrounds-18260-18720-hd-wallpapers.jpg");
+   background-image: url("https://image.ibb.co/nJXkp8/pokemon_15514_1920x1200.jpg");
+  // background-image: url("http://backgroundcheckall.com/wp-content/uploads/2017/12/pokemon-background-pokeball-7.jpg");
+  // background-image: url("http://www.modafinilsale.com/data/out/393/231094389-cute-pokemon-backgrounds.jpg");
   background-color: #000000;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -14,12 +18,32 @@ body {
 }
 
 .actual-ad {
-  background-color: #292929;
+  background-color: #ffffff;
+}
+
+.cards-bloc {
+  margin-top: 20px;
+
 }
 
 .cards-custom {
-  border: 1px solid #292929;
   &:hover {
     box-shadow: 1px 1px 5px #292929;
   }
+}
+
+.main-title {
+  font-weight: bold;
+  padding: 2px 10px;
+  background-color: #cb0000;
+  display: inline;
+  color: white;
+  margin-bottom: 100px;
+}
+
+.btn-poke {
+  font-weight: bolder;
+  background-color: #cb0000;
+  color: white;
+  border-radius: 0;
 }
