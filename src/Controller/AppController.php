@@ -27,7 +27,7 @@ class AppController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $ads = $em->getRepository(Ad::class)->findAll();
+        $ads = $em->getRepository(Ad::class)->getSixLastAds();
         return $this->render('index.html.twig', ['ads' => $ads]);
     }
 
