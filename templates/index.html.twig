@@ -19,8 +19,8 @@
 
         <section class="actual-ad pt-5 pb-5">
         <div class="container">
-        <h1 class="mb-4 main-title">EN VENTE ACTUELLEMENT</h1>
-            <h2 class="mt-2">Nos dernières annonces ! <br> Pour en voir plus, rendez-vous <a href="{{ path('ad_index') }}">ici</a>.</h2>
+        <h2 class="mb-4 main-title">EN VENTE ACTUELLEMENT</h2>
+            <h3 class="mt-2">Nos dernières annonces ! <br> Pour en voir plus, rendez-vous <a href="{{ path('ad_index') }}">ici</a>.</h3>
 
         <div class="row cards-bloc">
         {% for ad in ads %}
@@ -36,6 +36,18 @@
         </div>
         </div>
         </section>
+
+    <hr>
+
+    <section>
+        <div class="container">
+            <h2 class="mb-4 main-title">RECHERCHE</h2>
+            <h3 class="mt-2">Entrez le nom d'un pokemon</h3>
+            <!-- Search bar here -->
+
+
+        </div>
+    </section>
 
 
 {% endblock %}
