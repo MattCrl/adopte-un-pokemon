@@ -28,7 +28,7 @@
                 <img class="card-img-top" src="{{ ad.pokemon.image }}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title text-center font-weight-bold">{{ ad.title|slice(0, 15) }}...</h5>
-                    <p class="text-center">{{ ad.description|slice(0, 50) }}...</p>
+                    <h6 class="text-center font-weight-bold">{{ ad.price }} €</h6>
                     <a href="{{ path('ad_show', {'id': ad.id}) }}" class="btn btn-poke btn-block">Voir l'annonce</a>
                 </div>
             </div>
