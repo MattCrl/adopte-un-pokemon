@@ -47,3 +47,14 @@ body {
   color: white;
   border-radius: 0;
 }
+
+.autocomplete-custom {
+  margin-top: -15px;
+  margin-left: -40px;
+}
+
+.one-item:hover {
+  background-color: #cb0000;
+  color: white;
+  font-weight: bolder;
+}
