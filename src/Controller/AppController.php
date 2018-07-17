@@ -29,11 +29,13 @@ class AppController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $ads = $em->getRepository(Ad::class)->getSixLastAds();
+        $lastAds = $em->getRepository(Ad::class)->getHeightLastAds();
+        $ads = $em->getRepository(Ad::class)->findAll();
 
         $form = $this->createForm(AdSearchType::class);
 
         return $this->render('index.html.twig', [
+            'lastAds' => $lastAds,
             'ads' => $ads,
             'form' => $form->createView()
         ]);
@@ -42,13 +44,21 @@ class AppController extends Controller
     /**
      * Member Homepage
      *
-     * @Route("/member/homepage", name="app_index_member")
+     * @Route("/member/dashboard", name="app_index_member")
      * @Method("GET")
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexMemberAction()
     {
-        return $this->render('index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $ads = $em->getRepository(Ad::class)->findAll();
+
+        $user = $this->getUser();
+
+        return $this->render('dashboard/index.html.twig', [
+            'ads' => $ads,
+            'user' => $user
+        ]);
     }
 
     /**

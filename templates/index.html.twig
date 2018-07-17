@@ -36,7 +36,7 @@
             <h3 class="mt-2">Nos dernières annonces ! <br> Pour en voir plus, rendez-vous <a href="{{ path('ad_index') }}">ici</a>.</h3>
 
         <div class="row cards-bloc">
-        {% for ad in ads %}
+        {% for ad in lastAds %}
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card cards-custom mt-4">
                     <img class="card-img-top" src="{{ ad.pokemon.image }}" alt="Card image cap">
