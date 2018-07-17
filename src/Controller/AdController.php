@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Ad;
+use App\Form\AdSearchType;
 use App\Form\AdType;
 use App\Repository\AdRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -87,4 +88,6 @@ class AdController extends Controller
 
         return $this->redirectToRoute('ad_index');
     }
+
+
 }
