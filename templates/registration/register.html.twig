@@ -7,11 +7,26 @@
 
 {% block body %}
     <div class="container form-container">
+        {{ form_start(form) }}
 
-    {{form(form)}}
+        {{ form_label (form.firstName, 'PRENOM') }}
+        {{ form_widget (form.firstName, {'attr': {'placeholder': 'Ondine'}}) }}
+
+        {{ form_label (form.lastName, 'NOM') }}
+        {{ form_widget (form.lastName, {'attr': {'placeholder': 'Misty'}}) }}
+
+        {{ form_label (form.nickName, 'PSEUDO') }}
+        {{ form_widget (form.nickName, {'attr': {'placeholder': 'Ondine-du-45'}}) }}
+
+        {{ form_label (form.email, 'ADRESSE MAIL') }}
+        {{ form_widget (form.email, {'attr': {'placeholder': 'ondine45@pokemon.fr'}}) }}
+
+
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
 
     <form action="{{ path('app_index') }}">
-        <button type="submit" class="btn btn-custom btn-block">Retour à la page d'accueil</button>
+        <button type="submit" class="btn btn-primary btn-block">Retour à la page d'accueil</button>
     </form>
     </div>
 {% endblock %}
