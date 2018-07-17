@@ -30,7 +30,7 @@ class SecurityController extends Controller {
             ->add('_password', \Symfony\Component\Form\Extension\Core\Type\PasswordType::class, ['label' => 'MOT DE PASSE'])
             ->add('ok', \Symfony\Component\Form\Extension\Core\Type\SubmitType::class, [
                 'label' => 'Connexion',
-                'attr' => ['class' => 'btn-margin btn btn-custom btn-block']
+                'attr' => ['class' => 'btn-margin btn btn-primary text-uppercase btn-block']
                 ])
             ->getForm();
         return $this->render('security/login.html.twig', [
