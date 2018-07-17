@@ -35,7 +35,7 @@ class StringToPokemonTransformer implements DataTransformerInterface
             return;
         }
 
-        return $pokemon->getId();
+        return $pokemon->getName();
     }
 
     /**

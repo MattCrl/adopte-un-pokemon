@@ -28,4 +28,19 @@ class AdRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    /**
+     * @param $pokemon
+     * @return array
+     */
+    public function getAdsLikePokemonName($pokemon)
+    {
+        $pokemon = '%' . $pokemon . '%';
+        $qb = $this->createQueryBuilder('a')
+            ->join('a.pokemon', 'p')
+            ->where('p.name LIKE :name')
+            ->setParameter('name', $pokemon)
+            ->getQuery();
+        return $qb->getResult();
+    }
 }
