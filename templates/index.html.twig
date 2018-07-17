@@ -12,6 +12,10 @@
         {{ form_end(form) }}
         </div>
 
+        <h3 class="text-center scroll-link">Les annonces en ligne <br />
+            <a href="#" id="button-scroll"><i class="fas fa-arrow-down"></i></a>
+        </h3>
+
     </header>
     <div class="container">
 
@@ -28,7 +32,7 @@
 
         <section class="actual-ad pt-5 pb-5">
         <div class="container">
-        <h2 class="mb-4 main-title">EN VENTE ACTUELLEMENT</h2>
+        <h2 class="mb-4 main-title" id="scroll-target">EN VENTE ACTUELLEMENT</h2>
             <h3 class="mt-2">Nos dernières annonces ! <br> Pour en voir plus, rendez-vous <a href="{{ path('ad_index') }}">ici</a>.</h3>
 
         <div class="row cards-bloc">
