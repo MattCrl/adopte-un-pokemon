@@ -1,5 +1,6 @@
 $theme-colors: (
-        "primary": #cb0000
+        "primary": #cb0000,
+        "danger" : #cb0000
 );
 
 @import "~bootstrap/scss/bootstrap";
@@ -11,7 +12,7 @@ body {
 .header {
   height: 900px;
   background-image: url("https://image.ibb.co/eujVBy/pokemon_15514_1920x1200.jpg");
-  background-color: #000000;
+  background-color: #ffffff;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -71,6 +72,10 @@ body {
   margin-top: 500px;
 }
 
-.btn-primary {
+.btn {
   border-radius: 0;
+}
+
+.badge-custom {
+  font-size: 15px;
 }

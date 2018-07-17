@@ -19,7 +19,7 @@ class AdRepository extends ServiceEntityRepository
         parent::__construct($registry, Ad::class);
     }
 
-    public function getSixLastAds()
+    public function getHeightLastAds()
     {
         return $this->createQueryBuilder('a')
             ->select('a')

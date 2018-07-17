@@ -28,9 +28,7 @@ class AdType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
-            ->add('isSold')
             ->add('image')
-            ->add('user')
             ->add('location')
             ->add('category')
             ->add('price',
