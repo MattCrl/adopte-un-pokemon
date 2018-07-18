@@ -37,7 +37,7 @@
 
         <div class="row cards-bloc">
         {% for ad in lastAds %}
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            {#<div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card cards-custom mt-4">
                     <img class="card-img-top" src="{{ ad.pokemon.image }}" alt="Card image cap">
                     <div class="card-body">
@@ -46,11 +46,37 @@
                         <a href="{{ path('ad_show', {'id': ad.id}) }}" class="btn btn-primary btn-block">Voir l'annonce</a>
                     </div>
                 </div>
+            </div>#}
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card hovercard cards-custom">
+                    <div class="cardheader">
+                    </div>
+                    <div class="avatar">
+                        <img alt="" src="{{ ad.pokemon.image }}">
+                    </div>
+                    <div class="info">
+                        <div class="title font-weight-bold">
+                            <a target="_blank" href="https://scripteden.com/">{{ ad.pokemon.name }}</a>
+                        </div>
+                        <div class="desc price-card">{{ ad.price }}€</div>
+                    </div>
+                    <div class="bottom">
+                        <a href="{{ path('ad_show', {'id': ad.id}) }}" class="btn btn-primary btn-block mt-3">Voir l'annonce</a>
+                    </div>
+                </div>
             </div>
         {% endfor %}
         </div>
         </div>
         </section>
+
+    <div class="container">
+        <div class="row">
+
+
+        </div>
+    </div>
 
     <hr>
 
