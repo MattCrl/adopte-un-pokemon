@@ -5,11 +5,11 @@ namespace App\Controller;
 use App\Entity\Ad;
 use App\Form\AdType;
 use App\Repository\AdRepository;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Pagerfanta\Adapter\ArrayAdapter;
 use Pagerfanta\Pagerfanta;
 
 
@@ -22,9 +22,9 @@ class AdController extends Controller
     {
         $page = $request->query->get('page', 1);
         $em = $this->getDoctrine()->getManager();
-        $ads = $em->getRepository(Ad::class)->findAll();
+        $ads = $em->getRepository(Ad::class)->findAllQuery();
 
-        $adapter = new ArrayAdapter($ads);
+        $adapter = new DoctrineORMAdapter($ads);
         $pagerfanta = new Pagerfanta($adapter);
         $pagerfanta->setMaxPerPage(8);
         $pagerfanta->setCurrentPage($page);

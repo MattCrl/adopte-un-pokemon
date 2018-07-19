@@ -11,7 +11,7 @@
             <p class="ads-count">Actuellement {{ ads|length }} annonces en ligne</p>
         <h2 class="mb-4 main-title"><i class="fas fa-search"></i> RECHERCHER UN POKEMON</h2>
 
-            {{ form_start(form, {'action': path('search_results'), 'method': 'POST'}) }}
+            {{ form_start(form, {'action': path('search_results')}) }}
 
         {{ form_end(form) }}
         </div>
