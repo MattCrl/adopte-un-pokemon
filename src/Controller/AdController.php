@@ -35,6 +35,7 @@ class AdController extends Controller
 
         if ($form->isSubmitted() && $form->isValid() && $user != null) {
             $ad->setUser($user);
+            $ad->setIsSold(false);
             $em = $this->getDoctrine()->getManager();
             $em->persist($ad);
             $em->flush();

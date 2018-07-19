@@ -1,32 +1,74 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="nonnon">
+
+    </div>
     <div class="container">
         {% if ad.isSold %}
             <h1 class="mt-4">{{ ad.title }}</h1>
             <h2>Désolé, ce pokémon n'est plus à vendre</h2>
         {% else %}
-            <h1 class="mt-4">{{ ad.title }}</h1>
+            <h1 class="mt-4">{{ ad.title | upper }}</h1>
+            <span class="badge badge-primary badge-price">{{ ad.price }}€</span>
 
-            <img src="{{ ad.pokemon.image }}" alt="{{ ad.pokemon.name }}">
-            <h2>Description</h2>
-            <p>{{ ad.description }}</p>
+            <div class="row">
+                <div class="col-6">
+            {% if ad.pokemon.id | length == 1 %}
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/00{{ ad.pokemon.id }}.png" alt="{{ ad.pokemon.name }}">
+            {% elseif ad.pokemon.id | length == 2 %}
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/0{{ ad.pokemon.id }}.png" alt="{{ ad.pokemon.name }}">
+            {% elseif ad.pokemon.id | length == 3 %}
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{ ad.pokemon.id }}.png" alt="{{ ad.pokemon.name }}">
+            {% endif %}
+                </div>
 
-            <h2>Caractéristiques</h2>
-            <ul>
-                <li>{{ ad.pokemon.name }}</li>
-                <li>{{ ad.pokemon.height }}</li>
-                <li>{{ ad.pokemon.weight }}</li>
-                <li>{{ ad.pokemon.type }}</li>
-                <li>{{ ad.pokemon.ability }}</li>
-            </ul>
+                <div class="col-6">
+                    <h2>Description</h2>
+                    <p>{{ ad.description }}</p>
+
+                </div>
+            </div>
+
+            <h2 class="mt-5">Caractéristiques</h2>
+
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th>Nom</th>
+                        <td>{{ ad.pokemon.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Taille</th>
+                        <td>{{ ad.pokemon.height }}m</td>
+                    </tr>
+                    <tr>
+                        <th>Poids</th>
+                        <td>{{ ad.pokemon.weight }}kg</td>
+                    </tr>
+                    <tr>
+                        <th>Type</th>
+                        <td>{{ ad.pokemon.type | capitalize }}</td>
+                    </tr>
+                    <tr>
+                        <th>Attaque principale</th>
+                        <td>{{ ad.pokemon.ability }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
             <p></p>
 
-            <h2>Contacter le vendeur</h2>
+            <h2 class="mt-5">Contacter le vendeur</h2>
+            <h6>Vendeur : {{ ad.user.nickname }}</h6>
 
+            <div class="form-group">
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
         {% endif %}
 
-        <a href="{{ path('ad_index') }}" class="btn btn-primary">Retour</a>
+        <a href="{{ path('ad_index') }}" class="btn btn-primary mb-5">Retour</a>
     </div>
 
 {% endblock %}
