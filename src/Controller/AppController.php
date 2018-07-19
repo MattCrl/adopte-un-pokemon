@@ -15,6 +15,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Pagerfanta\Adapter\ArrayAdapter;
+use Pagerfanta\Pagerfanta;
 
 class AppController extends Controller
 {
@@ -68,11 +70,19 @@ class AppController extends Controller
      */
     public function searchByPokemon(Request $request)
     {
+        $page = $request->query->get('page', 1);
+
         $searched = $request->request->get('ad_search')['pokemon'];
         $results = $this->getDoctrine()->getRepository(Ad::class)->getAdsLikePokemonName($searched);
 
+        $adapter = new ArrayAdapter($results);
+        $pagerfanta = new Pagerfanta($adapter);
+        $pagerfanta->setMaxPerPage(8);
+        $pagerfanta->setCurrentPage($page);
+
+
         return $this->render('search/search_results.html.twig', [
-            'results' => $results
+            'my_pager' => $pagerfanta
         ]);
     }
 }

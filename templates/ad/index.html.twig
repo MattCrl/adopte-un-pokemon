@@ -8,12 +8,14 @@
     </div>
 
     <div class="container">
-        <h1 class="mt-5 mb-3">Toutes les annonces en ligne <span class="text-black-50">({{ ads | length }})</span></h1>
+        <h1 class="mt-5 mb-3">Toutes les annonces en ligne <span class="text-black-50">({{ my_pager | length }})</span></h1>
 
     <a href="{{ path('ad_new') }}" class="btn btn-primary mb-5">Poster une annonce</a>
 
+        {{ pagerfanta(my_pager, 'twitter_bootstrap4', { 'omitFirstPage': true}) }}
+
         <div class="row">
-        {% for ad in ads %}
+        {% for ad in my_pager.currentPageResults %}
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card hovercard cards-custom">
                     <div class="cardheader">
@@ -34,5 +36,6 @@
             </div>
         {% endfor %}
         </div>
+
     </div>
 {% endblock %}

@@ -3,13 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Ad;
-use App\Form\AdSearchType;
 use App\Form\AdType;
 use App\Repository\AdRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Pagerfanta\Adapter\ArrayAdapter;
+use Pagerfanta\Pagerfanta;
 
 
 class AdController extends Controller
@@ -17,9 +18,21 @@ class AdController extends Controller
     /**
      * @Route("/ad", name="ad_index", methods="GET")
      */
-    public function index(AdRepository $adRepository): Response
+    public function index(Request $request): Response
     {
-        return $this->render('ad/index.html.twig', ['ads' => $adRepository->findAll()]);
+        $page = $request->query->get('page', 1);
+        $em = $this->getDoctrine()->getManager();
+        $ads = $em->getRepository(Ad::class)->findAll();
+
+        $adapter = new ArrayAdapter($ads);
+        $pagerfanta = new Pagerfanta($adapter);
+        $pagerfanta->setMaxPerPage(8);
+        $pagerfanta->setCurrentPage($page);
+
+        return $this->render('ad/index.html.twig', [
+            'my_pager' => $pagerfanta
+            ]
+            );
     }
 
     /**
