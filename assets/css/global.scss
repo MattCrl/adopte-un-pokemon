@@ -1,3 +1,8 @@
+$theme-colors: (
+        "primary": #cb0000,
+        "danger" : #cb0000
+);
+
 @import "~bootstrap/scss/bootstrap";
 
 body {
@@ -6,16 +11,18 @@ body {
 
 .header {
   height: 900px;
-  // background-image: url("https://image.ibb.co/kdePgo/pokemon_go_hd.jpg");
-  // background-image: url("https://hdwallsource.com/img/2014/8/pokemon-backgrounds-18260-18720-hd-wallpapers.jpg");
-   background-image: url("https://image.ibb.co/nJXkp8/pokemon_15514_1920x1200.jpg");
-  // background-image: url("http://backgroundcheckall.com/wp-content/uploads/2017/12/pokemon-background-pokeball-7.jpg");
-  // background-image: url("http://www.modafinilsale.com/data/out/393/231094389-cute-pokemon-backgrounds.jpg");
-  background-color: #000000;
+  background-image: url("https://image.ibb.co/eujVBy/pokemon_15514_1920x1200.jpg");
+  background-color: #ffffff;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
 }
+
+.banner {
+  height: 100px;
+  background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
+}
+
 
 .actual-ad {
   background-color: #ffffff;
@@ -28,7 +35,7 @@ body {
 
 .cards-custom {
   &:hover {
-    box-shadow: 1px 1px 5px #292929;
+    box-shadow: 0 0 8px #6d6d6d;
   }
 }
 
@@ -46,4 +53,143 @@ body {
   background-color: #cb0000;
   color: white;
   border-radius: 0;
+}
+
+.autocomplete-custom {
+  margin-top: -15px;
+  margin-left: -40px;
+}
+
+.one-item:hover {
+  background-color: #cb0000;
+  color: white;
+  font-weight: bolder;
+}
+
+.ads-count {
+  font-size: 20px;
+}
+
+.search-margin{
+  margin-top: 10px;
+}
+
+.scroll-link {
+  margin-top: 500px;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.badge-custom {
+  font-size: 15px;
+}
+
+.badge-price {
+  font-size: 40px;
+}
+
+// cards
+.card {
+  padding-top: 20px;
+  margin: 10px 0 20px 0;
+  background-color: rgba(214, 224, 226, 0.2);
+  border-top-width: 0;
+  border-bottom-width: 2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.card .card-heading.image img {
+  display: inline-block;
+  width: 46px;
+  height: 46px;
+  margin-right: 15px;
+  vertical-align: top;
+  border: 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.card .card-body {
+  padding: 0 20px;
+  margin-top: 20px;
+}
+
+
+.card .card-media img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.card.people .card-info .title {
+  display: block;
+  margin: 8px 14px 0 14px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #404040;
+}
+
+.card.hovercard {
+  position: relative;
+  padding-top: 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: rgba(214, 224, 226, 0.2);
+}
+
+.card.hovercard .cardheader {
+  background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_gray_bg.png");
+  background-size: cover;
+  height: 80px;
+}
+
+.card.hovercard .avatar {
+  position: relative;
+  top: -50px;
+  margin-bottom: -30px;
+}
+
+.card.hovercard .avatar img {
+  width: 140px;
+  height: 140px;
+  max-width: 140px;
+  max-height: 140px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid #616161;
+  background-color: #f7f9f9;
+}
+
+.price-card {
+  font-size: 20px;
+}
+
+.card.hovercard .info {
+  padding: 4px 8px 10px;
+}
+
+.card.hovercard .info .title {
+  margin-bottom: 4px;
+  font-size: 24px;
+  line-height: 1;
+  color: #262626;
+  vertical-align: middle;
+}
+
+.card.hovercard .bottom {
+  padding: 0 20px;
+  margin-bottom: 17px;
 }

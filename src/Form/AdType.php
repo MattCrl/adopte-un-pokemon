@@ -6,6 +6,7 @@ use App\Entity\Ad;
 use App\Form\DataTransformer\StringToPokemonTransformer;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -27,11 +28,11 @@ class AdType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
-            ->add('isSold')
             ->add('image')
-            ->add('user')
             ->add('location')
             ->add('category')
+            ->add('price',
+                            MoneyType::class)
             ->add('pokemon',
                         TextType::class,
                             ['attr' => ['autocomplete' => 'off']]);

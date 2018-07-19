@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Ad;
+use App\Form\AdSearchType;
 use App\Form\AdType;
 use App\Repository\AdRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -10,13 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/ad")
- */
+
 class AdController extends Controller
 {
     /**
-     * @Route("/", name="ad_index", methods="GET")
+     * @Route("/ad", name="ad_index", methods="GET")
      */
     public function index(AdRepository $adRepository): Response
     {
@@ -24,7 +23,7 @@ class AdController extends Controller
     }
 
     /**
-     * @Route("/new", name="ad_new", methods="GET|POST")
+     * @Route("/member/ad/new", name="ad_new", methods="GET|POST")
      */
     public function new(Request $request): Response
     {
@@ -32,7 +31,11 @@ class AdController extends Controller
         $form = $this->createForm(AdType::class, $ad);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        $user = $this->getUser();
+
+        if ($form->isSubmitted() && $form->isValid() && $user != null) {
+            $ad->setUser($user);
+            $ad->setIsSold(false);
             $em = $this->getDoctrine()->getManager();
             $em->persist($ad);
             $em->flush();
@@ -47,7 +50,7 @@ class AdController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="ad_show", methods="GET")
+     * @Route("/ad/{id}", name="ad_show", methods="GET")
      */
     public function show(Ad $ad): Response
     {
@@ -55,7 +58,7 @@ class AdController extends Controller
     }
 
     /**
-     * @Route("/{id}/edit", name="ad_edit", methods="GET|POST")
+     * @Route("/ad/{id}/edit", name="ad_edit", methods="GET|POST")
      */
     public function edit(Request $request, Ad $ad): Response
     {
@@ -75,7 +78,7 @@ class AdController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="ad_delete", methods="DELETE")
+     * @Route("/ad/{id}", name="ad_delete", methods="DELETE")
      */
     public function delete(Request $request, Ad $ad): Response
     {
@@ -87,4 +90,6 @@ class AdController extends Controller
 
         return $this->redirectToRoute('ad_index');
     }
+
+
 }

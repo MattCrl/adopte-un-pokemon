@@ -2,6 +2,19 @@
 
 {% block body %}
     <header class="header">
+        <div class="container search-bar mt-5">
+            <h1>Bienvenue sur adopeUnPokemon.com !</h1>
+            <p class="ads-count">Actuellement {{ ads|length }} annonces en ligne</p>
+        <h2 class="mb-4 main-title"><i class="fas fa-search"></i> RECHERCHER UN POKEMON</h2>
+
+            {{ form_start(form, {'action': path('search_results'), 'method': 'POST'}) }}
+
+        {{ form_end(form) }}
+        </div>
+
+        <h3 class="text-center scroll-link">Les annonces en ligne <br />
+            <a href="#" id="button-scroll"><i class="fas fa-arrow-down"></i></a>
+        </h3>
 
     </header>
     <div class="container">
@@ -19,23 +32,45 @@
 
         <section class="actual-ad pt-5 pb-5">
         <div class="container">
-        <h1 class="mb-4 main-title">EN VENTE ACTUELLEMENT</h1>
-            <h2 class="mt-2">Nos dernières annonces ! <br> Pour en voir plus, rendez-vous <a href="{{ path('ad_index') }}">ici</a>.</h2>
+        <h2 class="mb-4 main-title" id="scroll-target">EN VENTE ACTUELLEMENT</h2>
+            <h3 class="mt-2">Nos dernières annonces ! <br> Pour en voir plus, rendez-vous <a href="{{ path('ad_index') }}">ici</a>.</h3>
 
         <div class="row cards-bloc">
-        {% for ad in ads %}
-            <div class="card col-12 col-sm-6 col-md-4 col-lg-3 pt-3 mr-2 mb-2 cards-custom">
-                <img class="card-img-top" src="{{ ad.pokemon.image }}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title text-center font-weight-bold">{{ ad.title|slice(0, 15) }}...</h5>
-                    <p class="text-center">{{ ad.description|slice(0, 50) }}...</p>
-                    <a href="{{ path('ad_show', {'id': ad.id}) }}" class="btn btn-poke btn-block">Voir l'annonce</a>
+        {% for ad in lastAds %}
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card hovercard cards-custom">
+                    <div class="cardheader">
+                    </div>
+                    <div class="avatar">
+                        <img alt="" src="{{ ad.pokemon.image }}">
+                    </div>
+                    <div class="info">
+                        <div class="title font-weight-bold">
+                            <a href="{{ path('ad_show', {'id': ad.id}) }}">{{ ad.pokemon.name }}</a>
+                        </div>
+                        <div class="desc price-card">{{ ad.price }}€</div>
+                    </div>
+                    <div class="bottom">
+                        <a href="{{ path('ad_show', {'id': ad.id}) }}" class="btn btn-primary btn-block mt-3">Voir l'annonce</a>
+                    </div>
                 </div>
             </div>
         {% endfor %}
         </div>
         </div>
         </section>
+
+    <div class="container">
+        <div class="row">
+
+
+        </div>
+    </div>
+
+    <hr>
+
+
 
 
 {% endblock %}

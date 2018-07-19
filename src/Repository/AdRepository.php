@@ -19,32 +19,28 @@ class AdRepository extends ServiceEntityRepository
         parent::__construct($registry, Ad::class);
     }
 
-//    /**
-//     * @return Ad[] Returns an array of Ad objects
-//     */
-    /*
-    public function findByExampleField($value)
+    public function getHeightLastAds()
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
+            ->select('a')
+            ->orderBy('a.id', 'DESC')
+            ->setMaxResults(8)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Ad
+    /**
+     * @param $pokemon
+     * @return array
+     */
+    public function getAdsLikePokemonName($pokemon)
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $pokemon = '%' . $pokemon . '%';
+        $qb = $this->createQueryBuilder('a')
+            ->join('a.pokemon', 'p')
+            ->where('p.name LIKE :name')
+            ->setParameter('name', $pokemon)
+            ->getQuery();
+        return $qb->getResult();
     }
-    */
 }

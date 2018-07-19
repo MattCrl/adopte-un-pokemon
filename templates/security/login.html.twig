@@ -33,8 +33,13 @@
         {{ form_widget(form) }}
         {{ form_end(form) }}
 
+        <p class="text-black-50 mt-5 mb-2">Pas encore inscrit ?</p>
+        <form action="{{ path('register') }}" class="mb-2">
+            <button type="submit" class="btn btn-primary btn-block text-uppercase">Créer un compte</button>
+        </form>
+
         <form action="{{ path('app_index') }}">
-            <button type="submit" class="btn btn-custom btn-block">Retour à la page d'accueil</button>
+            <button type="submit" class="btn btn-primary btn-block text-uppercase">Retour à la page d'accueil</button>
         </form>
     <!-- End container -->
     </div>

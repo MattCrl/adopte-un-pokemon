@@ -65,6 +65,11 @@ class Ad
      */
     private $messages;
 
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=2)
+     */
+    private $price;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
@@ -213,6 +218,18 @@ class Ad
                 $message->setAd(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    public function setPrice($price): self
+    {
+        $this->price = $price;
 
         return $this;
     }
