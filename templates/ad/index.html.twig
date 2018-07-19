@@ -2,6 +2,10 @@
 
 {% block title %}Ad index{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/badges-type.css') }}">
+{% endblock %}
+
 {% block body %}
     <div class="banner">
 
@@ -27,7 +31,9 @@
                         <div class="title font-weight-bold">
                             <a href="{{ path('ad_show', {'id': ad.id}) }}">{{ ad.pokemon.name }}</a>
                         </div>
-                        <div class="desc price-card">{{ ad.price }}€</div>
+                        <div class="desc price-card mb-2">{{ ad.price }}€</div>
+                        <div class=""><span class="badge badge-type badge-type-{{ ad.pokemon.type }}">{{ ad.pokemon.type | capitalize }}</span></div>
+
                     </div>
                     <div class="bottom">
                         <a href="{{ path('ad_show', {'id': ad.id}) }}" class="btn btn-primary btn-block mt-3">Voir l'annonce</a>
