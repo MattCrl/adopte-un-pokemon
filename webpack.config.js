@@ -17,6 +17,7 @@ Encore
     // .addStyleEntry('css/app', './assets/css/app.scss')
     .addStyleEntry('css/style', './assets/css/global.scss')
     .addStyleEntry('css/auth', './assets/css/authentication.scss')
+    .addStyleEntry('css/badges-type', './assets/css/badges-type.scss')
 
     // uncomment if you use Sass/SCSS files
     .enableSassLoader()
