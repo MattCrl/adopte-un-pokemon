@@ -3,41 +3,36 @@
 {% block title %}Ad index{% endblock %}
 
 {% block body %}
+    <div class="banner">
+
+    </div>
+
     <div class="container">
-    <h1>Ad index</h1>
+        <h1 class="mt-5 mb-3">Toutes les annonces en ligne <span class="text-black-50">({{ ads | length }})</span></h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Titre</th>
-                <th>Description</th>
-                <th>Vendu ?</th>
-                <th>Image</th>
-                <th>Prix</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <a href="{{ path('ad_new') }}" class="btn btn-primary mb-5">Poster une annonce</a>
+
+        <div class="row">
         {% for ad in ads %}
-            <tr>
-                <td>{{ ad.title }}</td>
-                <td>{{ ad.description }}</td>
-                <td>{{ ad.isSold ? 'Oui' : 'Non' }}</td>
-                <td>{{ ad.image }}</td>
-                <td>{{ ad.price }}</td>
-                <td>
-                    <a href="{{ path('ad_show', {'id': ad.id}) }}">show</a>
-                    <a href="{{ path('ad_edit', {'id': ad.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">Aucun résultat</td>
-            </tr>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card hovercard cards-custom">
+                    <div class="cardheader">
+                    </div>
+                    <div class="avatar">
+                        <img alt="" src="{{ ad.pokemon.image }}">
+                    </div>
+                    <div class="info">
+                        <div class="title font-weight-bold">
+                            <a href="{{ path('ad_show', {'id': ad.id}) }}">{{ ad.pokemon.name }}</a>
+                        </div>
+                        <div class="desc price-card">{{ ad.price }}€</div>
+                    </div>
+                    <div class="bottom">
+                        <a href="{{ path('ad_show', {'id': ad.id}) }}" class="btn btn-primary btn-block mt-3">Voir l'annonce</a>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('ad_new') }}">Create new</a>
+        </div>
     </div>
 {% endblock %}
