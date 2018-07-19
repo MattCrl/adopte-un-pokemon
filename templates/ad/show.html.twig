@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/badges-type.css') }}">
+{% endblock %}
+
 {% block body %}
     <div class="banner">
 
@@ -48,7 +52,7 @@
                     </tr>
                     <tr>
                         <th>Type</th>
-                        <td>{{ ad.pokemon.type | capitalize }}</td>
+                        <td><span class="badge badge-type badge-type-{{ ad.pokemon.type }}">{{ ad.pokemon.type | capitalize }}</span></td>
                     </tr>
                     <tr>
                         <th>Attaque principale</th>
