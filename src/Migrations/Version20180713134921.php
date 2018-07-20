@@ -50,7 +50,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Plante',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -66,7 +66,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Plante',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -82,7 +82,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Plante',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -235,7 +235,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Insecte',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -251,7 +251,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Insecte',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -267,7 +267,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Insecte',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -282,7 +282,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.3,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -299,7 +299,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.1,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -316,7 +316,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -333,7 +333,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.3,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -349,7 +349,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.7,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -365,7 +365,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.3,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -381,7 +381,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.2,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -397,7 +397,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 2.0,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -413,7 +413,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 3.5,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -489,7 +489,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.4,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -505,7 +505,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.8,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -521,7 +521,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.3,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Sol',
                             ),
                         'abilities' =>
@@ -538,7 +538,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.5,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -554,7 +554,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.9,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -570,7 +570,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.4,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Sol',
                             ),
                         'abilities' =>
@@ -649,7 +649,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Fée',
                             ),
                         'abilities' =>
@@ -666,7 +666,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.0,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Fée',
                             ),
                         'abilities' =>
@@ -683,7 +683,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.8,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -699,7 +699,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.6,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -716,7 +716,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Plante',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -732,7 +732,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Plante',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -748,7 +748,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Plante',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -798,7 +798,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Insecte',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -815,7 +815,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Insecte',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -863,7 +863,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.4,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -879,7 +879,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.0,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -1137,7 +1137,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Plante',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -1153,7 +1153,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Plante',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -1169,7 +1169,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Plante',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -1185,7 +1185,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Eau',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -1202,7 +1202,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Eau',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -1369,7 +1369,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.8,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -1386,7 +1386,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.4,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -1403,7 +1403,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.8,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -1453,7 +1453,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.9,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -1469,7 +1469,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.2,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -1519,7 +1519,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Spectre',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -1535,7 +1535,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Spectre',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -1551,7 +1551,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Spectre',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -1775,7 +1775,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.2,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -1791,7 +1791,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -1806,7 +1806,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.2,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -1855,7 +1855,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.1,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -1887,7 +1887,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 2.2,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -2097,7 +2097,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.4,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -2161,7 +2161,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.3,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -2176,7 +2176,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.3,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -2237,7 +2237,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.8,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -2338,7 +2338,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 2.1,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -2402,7 +2402,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.8,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -2417,7 +2417,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 4.0,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -2432,7 +2432,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 2.2,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -2613,7 +2613,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.8,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -2629,7 +2629,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.8,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -2645,7 +2645,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.7,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -2662,7 +2662,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.6,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -2714,7 +2714,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Insecte',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -2731,7 +2731,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Insecte',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -2747,7 +2747,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.8,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -2828,7 +2828,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.3,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Fée',
                             ),
                         'abilities' =>
@@ -3089,7 +3089,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.8,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -3297,7 +3297,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Psy',
                             ),
                         'abilities' =>
@@ -3345,7 +3345,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -3428,7 +3428,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Eau',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -3512,7 +3512,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -3528,7 +3528,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.8,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -3746,7 +3746,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Eau',
-                                1 => 'dragon',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -3792,7 +3792,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -3808,7 +3808,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.4,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -3824,7 +3824,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.2,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -3919,7 +3919,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.2,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -3935,7 +3935,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -4263,7 +4263,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.4,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -4279,7 +4279,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -4357,7 +4357,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Insecte',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -4473,7 +4473,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.3,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -4489,7 +4489,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.7,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -4653,7 +4653,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.8,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -4668,7 +4668,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.4,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -4683,7 +4683,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 2.0,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -4746,7 +4746,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -4761,7 +4761,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.0,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -4776,7 +4776,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -4823,7 +4823,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.2,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Fée',
                             ),
                         'abilities' =>
@@ -4856,7 +4856,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -4872,7 +4872,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.1,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -5100,7 +5100,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Plante',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -5116,7 +5116,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.4,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -5132,7 +5132,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.7,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -5293,7 +5293,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.1,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -5326,7 +5326,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Sol',
-                                1 => 'dragon',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -5342,7 +5342,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Sol',
-                                1 => 'dragon',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -5388,7 +5388,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.4,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -5404,7 +5404,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.1,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -5420,7 +5420,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.3,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -5435,7 +5435,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 2.7,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -5677,7 +5677,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.3,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -5692,7 +5692,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.0,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -5992,7 +5992,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -6007,7 +6007,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.1,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -6022,7 +6022,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.5,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -6131,7 +6131,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.4,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                                 1 => 'Psy',
                             ),
                         'abilities' =>
@@ -6147,7 +6147,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 2.0,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                                 1 => 'Psy',
                             ),
                         'abilities' =>
@@ -6193,7 +6193,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 7.0,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -6379,7 +6379,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.3,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -6395,7 +6395,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -6411,7 +6411,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.2,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -6427,7 +6427,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -6443,7 +6443,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.0,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Eau',
                             ),
                         'abilities' =>
@@ -6539,7 +6539,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Plante',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -6556,7 +6556,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Plante',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -6822,7 +6822,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.2,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -6872,7 +6872,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.4,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -6888,7 +6888,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.2,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -6936,7 +6936,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -6952,7 +6952,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.0,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -6983,7 +6983,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.4,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Ténèbre',
                             ),
                         'abilities' =>
@@ -7000,7 +7000,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.0,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Ténèbre',
                             ),
                         'abilities' =>
@@ -7084,7 +7084,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -7100,7 +7100,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -7133,7 +7133,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.7,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                                 1 => 'Sol',
                             ),
                         'abilities' =>
@@ -7149,7 +7149,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.4,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                                 1 => 'Sol',
                             ),
                         'abilities' =>
@@ -7165,7 +7165,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.9,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                                 1 => 'Sol',
                             ),
                         'abilities' =>
@@ -7181,7 +7181,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -7260,7 +7260,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.8,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Insecte',
                             ),
                         'abilities' =>
@@ -7277,7 +7277,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.3,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Ténèbre',
                             ),
                         'abilities' =>
@@ -7294,7 +7294,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.7,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Combat',
                             ),
                         'abilities' =>
@@ -7311,7 +7311,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.3,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Combat',
                             ),
                         'abilities' =>
@@ -7457,7 +7457,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.7,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -7634,7 +7634,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.9,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -7776,7 +7776,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Acier',
-                                1 => 'dragon',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -7792,7 +7792,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Eau',
-                                1 => 'dragon',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -7823,7 +7823,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 3.7,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -7839,7 +7839,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Spectre',
-                                1 => 'dragon',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -7929,7 +7929,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 3.2,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -8097,7 +8097,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -8113,7 +8113,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.1,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -8129,7 +8129,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.4,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -8145,7 +8145,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.9,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -8161,7 +8161,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.2,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -8331,7 +8331,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.3,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -8348,7 +8348,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -8365,7 +8365,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.2,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -8526,7 +8526,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.1,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -8724,7 +8724,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Insecte',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -8741,7 +8741,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Insecte',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -8758,7 +8758,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Insecte',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -9134,7 +9134,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -9150,7 +9150,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.9,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -9196,7 +9196,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.4,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -9212,7 +9212,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -9403,7 +9403,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Plante',
                             ),
                         'abilities' =>
@@ -9420,7 +9420,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.9,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Plante',
                             ),
                         'abilities' =>
@@ -9487,7 +9487,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Plante',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -9503,7 +9503,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Plante',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -9810,7 +9810,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -9826,7 +9826,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.0,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -9842,7 +9842,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.8,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -9984,7 +9984,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.6,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -10068,7 +10068,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.6,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -10084,7 +10084,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -10101,7 +10101,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -10186,7 +10186,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Ténèbre',
-                                1 => 'dragon',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -10202,7 +10202,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Ténèbre',
-                                1 => 'dragon',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -10218,7 +10218,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Ténèbre',
-                                1 => 'dragon',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -10344,7 +10344,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 3.2,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                                 1 => 'Feu',
                             ),
                         'abilities' =>
@@ -10360,7 +10360,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 2.9,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                                 1 => 'Électrique',
                             ),
                         'abilities' =>
@@ -10392,7 +10392,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 3.0,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                                 1 => 'Glace',
                             ),
                         'abilities' =>
@@ -10424,7 +10424,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Psy',
                             ),
                         'abilities' =>
@@ -10594,7 +10594,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.4,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -10610,7 +10610,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.0,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Sol',
                             ),
                         'abilities' =>
@@ -10627,7 +10627,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.3,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -10724,7 +10724,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Feu',
-                                1 => 'normal',
+                                1 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -10741,7 +10741,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Feu',
-                                1 => 'normal',
+                                1 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -10865,7 +10865,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.2,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -11088,7 +11088,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.5,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Eau',
                             ),
                         'abilities' =>
@@ -11105,8 +11105,8 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.8,
                         'type' =>
                             array (
-                                0 => 'poison',
-                                1 => 'dragon',
+                                0 => 'Poison',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -11153,7 +11153,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Électrique',
-                                1 => 'normal',
+                                1 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -11170,7 +11170,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Électrique',
-                                1 => 'normal',
+                                1 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -11187,7 +11187,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Roche',
-                                1 => 'dragon',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -11203,7 +11203,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Roche',
-                                1 => 'dragon',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -11315,7 +11315,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.3,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -11331,7 +11331,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.8,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -11347,7 +11347,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 2.0,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -11480,7 +11480,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Vol',
-                                1 => 'dragon',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -11497,7 +11497,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Vol',
-                                1 => 'dragon',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -11544,7 +11544,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 5.0,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                                 1 => 'Sol',
                             ),
                         'abilities' =>
@@ -11748,7 +11748,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.3,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -11765,7 +11765,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -11782,7 +11782,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.1,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Vol',
                             ),
                         'abilities' =>
@@ -11799,7 +11799,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.4,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -11815,7 +11815,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.7,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -12008,7 +12008,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.4,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Eau',
                             ),
                         'abilities' =>
@@ -12025,7 +12025,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.7,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Eau',
                             ),
                         'abilities' =>
@@ -12170,7 +12170,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Feu',
                             ),
                         'abilities' =>
@@ -12186,7 +12186,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.2,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                                 1 => 'Feu',
                             ),
                         'abilities' =>
@@ -12202,7 +12202,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Combat',
                             ),
                         'abilities' =>
@@ -12219,7 +12219,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 2.1,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Combat',
                             ),
                         'abilities' =>
@@ -12300,7 +12300,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.5,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                                 1 => 'Psy',
                             ),
                         'abilities' =>
@@ -12411,7 +12411,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.9,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -12426,7 +12426,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 2.3,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -12457,7 +12457,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.4,
                         'type' =>
                             array (
-                                0 => 'normal',
+                                0 => 'Normal',
                             ),
                         'abilities' =>
                             array (
@@ -12473,7 +12473,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Feu',
-                                1 => 'dragon',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -12538,8 +12538,8 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 3.0,
                         'type' =>
                             array (
-                                0 => 'normal',
-                                1 => 'dragon',
+                                0 => 'Normal',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -12571,7 +12571,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -12587,7 +12587,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.2,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                                 1 => 'Combat',
                             ),
                         'abilities' =>
@@ -12604,7 +12604,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 1.6,
                         'type' =>
                             array (
-                                0 => 'dragon',
+                                0 => 'Dragon',
                                 1 => 'Combat',
                             ),
                         'abilities' =>
@@ -12748,7 +12748,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Roche',
-                                1 => 'poison',
+                                1 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -12843,7 +12843,7 @@ final class Version20180713134921 extends AbstractMigration
                         'type' =>
                             array (
                                 0 => 'Ténèbre',
-                                1 => 'dragon',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (
@@ -12905,7 +12905,7 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 0.6,
                         'type' =>
                             array (
-                                0 => 'poison',
+                                0 => 'Poison',
                             ),
                         'abilities' =>
                             array (
@@ -12920,8 +12920,8 @@ final class Version20180713134921 extends AbstractMigration
                         'height' => 3.6,
                         'type' =>
                             array (
-                                0 => 'poison',
-                                1 => 'dragon',
+                                0 => 'Poison',
+                                1 => 'Dragon',
                             ),
                         'abilities' =>
                             array (

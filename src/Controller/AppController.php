@@ -10,6 +10,7 @@ namespace App\Controller;
 
 
 use App\Entity\Ad;
+use App\Form\AdFiltersType;
 use App\Form\AdSearchType;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -83,7 +84,8 @@ class AppController extends Controller
 
 
         return $this->render('search/search_results.html.twig', [
-            'my_pager' => $pagerfanta
+            'my_pager' => $pagerfanta,
         ]);
     }
+
 }

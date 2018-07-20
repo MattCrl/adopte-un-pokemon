@@ -11,10 +11,25 @@
 
     </div>
 
-    <div class="container">
-        <h1 class="mt-5 mb-3">Toutes les annonces en ligne <span class="text-black-50">({{ my_pager | length }})</span></h1>
 
-    <a href="{{ path('ad_new') }}" class="btn btn-primary mb-5">Poster une annonce</a>
+
+
+
+    <div class="container">
+        <h1 class="mt-5 mb-3">Les annonces <span class="text-black-50">({{ my_pager | length }})</span></h1>
+
+    <a href="{{ path('ad_new') }}" class="btn btn-primary mb-4">Poster une annonce</a>
+
+        <div class="filters mb-2">
+            <h2>Filtres</h2>
+
+            {{ form_start(filter) }}
+            {{ form_widget(filter) }}
+            <input type="submit" class="btn btn-primary" value="Filtrer">
+            {{ form_end(filter) }}
+
+        </div>
+
 
         {{ pagerfanta(my_pager, 'twitter_bootstrap4', { 'omitFirstPage': true}) }}
 

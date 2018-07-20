@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Ad;
+use App\Form\AdFiltersType;
 use App\Form\AdType;
-use App\Repository\AdRepository;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,21 +16,37 @@ use Pagerfanta\Pagerfanta;
 class AdController extends Controller
 {
     /**
-     * @Route("/ad", name="ad_index", methods="GET")
+     * @Route("/ad", name="ad_index", methods="GET|POST")
      */
     public function index(Request $request): Response
     {
-        $page = $request->query->get('page', 1);
-        $em = $this->getDoctrine()->getManager();
-        $ads = $em->getRepository(Ad::class)->findAllQuery();
+        $type = $request->query->get('types');
+        $form = $this->createForm(AdFiltersType::class);
+        $form->handleRequest($request);
 
-        $adapter = new DoctrineORMAdapter($ads);
+
+        if ($form->isSubmitted() && $type != null) {
+            $results = $this->getDoctrine()->getRepository(Ad::class)->getAdsLikeType($type);
+        } else {
+            $results = $this->getDoctrine()->getRepository(Ad::class)->findAllQuery();
+        }
+
+        $page = $request->query->get('page', 1);
+
+        $adapter = new DoctrineORMAdapter($results);
         $pagerfanta = new Pagerfanta($adapter);
         $pagerfanta->setMaxPerPage(8);
         $pagerfanta->setCurrentPage($page);
 
-        return $this->render('ad/index.html.twig', [
-            'my_pager' => $pagerfanta
+
+        return $this->render('ad/index.html.twig',
+            [
+                'my_pager' => $pagerfanta,
+                'results' => $results,
+                'filter' => $form->createView(),
+                'request' => $request,
+                'type' => $type
+
             ]
             );
     }
