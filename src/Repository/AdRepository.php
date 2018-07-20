@@ -47,4 +47,13 @@ class AdRepository extends ServiceEntityRepository
             ->setParameter('name', $pokemon)
             ->getQuery();
     }
+
+    public function getAdsLikeType($type)
+    {
+        return $this->createQueryBuilder('a')
+            ->join('a.pokemon', 'p')
+            ->where('p.type = :type')
+            ->setParameter('type', $type)
+            ->getQuery();
+    }
 }
