@@ -1,4 +1,4 @@
-<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
     <div class="card hovercard cards-custom">
         <div class="cardheader">
         </div>
@@ -14,7 +14,13 @@
 
         </div>
         <div class="bottom">
-            <a href="{{ path('ad_show', {'id': ad.id}) }}" class="btn btn-primary btn-block mt-3">Voir l'annonce</a>
+
+            {% if app.user and ad.user.email == user.email %}
+                <a href="{{ path('ad_show', {'id': ad.id}) }}" class="btn btn-primary mt-1">Voir l'annonce</a>
+                <a href="{{ path('ad_edit', {'id': ad.id}) }}" class="btn btn-outline-primary mt-1"><i class="fas fa-edit"></i> Éditer</a>
+            {% else %}
+                <a href="{{ path('ad_show', {'id': ad.id}) }}" class="btn btn-primary btn-block mt-1">Voir l'annonce</a>
+            {% endif %}
         </div>
     </div>
 </div>
