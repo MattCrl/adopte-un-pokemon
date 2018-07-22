@@ -24,6 +24,8 @@ class AdController extends Controller
         $form = $this->createForm(AdFiltersType::class);
         $form->handleRequest($request);
 
+        $user = $this->getUser();
+
 
         if ($form->isSubmitted() && $type != null) {
             $results = $this->getDoctrine()->getRepository(Ad::class)->getAdsLikeType($type);
@@ -45,7 +47,8 @@ class AdController extends Controller
                 'results' => $results,
                 'filter' => $form->createView(),
                 'request' => $request,
-                'type' => $type
+                'type' => $type,
+                'user' => $user
 
             ]
             );
@@ -87,12 +90,15 @@ class AdController extends Controller
     }
 
     /**
-     * @Route("/ad/{id}/edit", name="ad_edit", methods="GET|POST")
+     * @Route("/member/ad/{id}/edit", name="ad_edit", methods="GET|POST")
      */
     public function edit(Request $request, Ad $ad): Response
     {
         $form = $this->createForm(AdType::class, $ad);
         $form->handleRequest($request);
+
+        $user = $this->getUser()->getEmail();
+        $adUser = $ad->getUser()->getEmail();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
@@ -100,10 +106,17 @@ class AdController extends Controller
             return $this->redirectToRoute('ad_edit', ['id' => $ad->getId()]);
         }
 
-        return $this->render('ad/edit.html.twig', [
-            'ad' => $ad,
-            'form' => $form->createView(),
-        ]);
+        if ($user === $adUser) {
+            return $this->render('ad/edit.html.twig', [
+                'ad' => $ad,
+                'form' => $form->createView(),
+                'user' => $user
+            ]);
+        } else {
+            $this->addFlash('danger', 'Vous n\'êtes pas autorisé à modifier cette annonce');
+            return $this->redirectToRoute('app_index');
+        }
+
     }
 
     /**

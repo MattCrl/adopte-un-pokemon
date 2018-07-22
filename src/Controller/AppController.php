@@ -35,11 +35,14 @@ class AppController extends Controller
         $lastAds = $em->getRepository(Ad::class)->getHeightLastAds();
         $ads = $em->getRepository(Ad::class)->findAll();
 
+        $user = $this->getUser();
+
         $form = $this->createForm(AdSearchType::class);
 
         return $this->render('index.html.twig', [
             'lastAds' => $lastAds,
             'ads' => $ads,
+            'user' => $user,
             'form' => $form->createView()
         ]);
     }
