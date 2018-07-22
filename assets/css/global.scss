@@ -25,7 +25,7 @@ body {
 
 
 .actual-ad {
-  background-color: #ffffff;
+  background-color: #f2f2f2;
 }
 
 .cards-bloc {
@@ -89,6 +89,7 @@ body {
 .badge-price {
   font-size: 40px;
 }
+
 
 // cards
 .card {
@@ -192,4 +193,13 @@ body {
 .card.hovercard .bottom {
   padding: 0 20px;
   margin-bottom: 17px;
+}
+
+
+// Filters group
+
+.filters {
+  background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
+  border: 1px solid #ced4da;
+  padding: 20px;
 }

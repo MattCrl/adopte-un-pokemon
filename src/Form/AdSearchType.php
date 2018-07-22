@@ -8,10 +8,12 @@
 
 namespace App\Form;
 
+use App\Entity\Ad;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 
 class AdSearchType extends AbstractType
@@ -20,6 +22,7 @@ class AdSearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->setMethod('GET')
             ->add('pokemon',
                     TextType::class, [
                         'label' => false,
@@ -35,6 +38,14 @@ class AdSearchType extends AbstractType
                             'class' => 'btn btn-primary',
                         ]
                 ]);
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class'      => Ad::class,
+            'csrf_protection' => false,
+        ));
     }
 
 }

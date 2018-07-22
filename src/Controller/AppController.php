@@ -10,11 +10,14 @@ namespace App\Controller;
 
 
 use App\Entity\Ad;
+use App\Form\AdFiltersType;
 use App\Form\AdSearchType;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Pagerfanta\Pagerfanta;
 
 class AppController extends Controller
 {
@@ -32,11 +35,14 @@ class AppController extends Controller
         $lastAds = $em->getRepository(Ad::class)->getHeightLastAds();
         $ads = $em->getRepository(Ad::class)->findAll();
 
+        $user = $this->getUser();
+
         $form = $this->createForm(AdSearchType::class);
 
         return $this->render('index.html.twig', [
             'lastAds' => $lastAds,
             'ads' => $ads,
+            'user' => $user,
             'form' => $form->createView()
         ]);
     }
@@ -68,11 +74,21 @@ class AppController extends Controller
      */
     public function searchByPokemon(Request $request)
     {
-        $searched = $request->request->get('ad_search')['pokemon'];
+        $page = $request->query->get('page', 1);
+
+        $searched = $request->query->get('ad_search')['pokemon'];
         $results = $this->getDoctrine()->getRepository(Ad::class)->getAdsLikePokemonName($searched);
 
+        $adapter = new DoctrineORMAdapter($results);
+        $pagerfanta = new Pagerfanta($adapter);
+
+        $pagerfanta->setMaxPerPage(8);
+        $pagerfanta->setCurrentPage($page);
+
+
         return $this->render('search/search_results.html.twig', [
-            'results' => $results
+            'my_pager' => $pagerfanta,
         ]);
     }
+
 }
