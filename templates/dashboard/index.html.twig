@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/badges-type.css') }}">
+{% endblock %}
+
 {% block body %}
     <div class="container">
         <div class="mt-4">
@@ -10,14 +14,13 @@
         <div class="mt-5">
             <h2 class="main-title text-uppercase">Mes pokémon en vente</h2>
         </div>
-        <ul class="mt-3 list-group">
-        {% for ad in user.ads %}
-            <a class="list-group-item list-group-item-action"
-               href="{{ path('ad_show', {'id': ad.id}) }}">
-                <span class="font-weight-bold">{{ ad.pokemon.name|upper }}</span> - <span class="badge badge-primary badge-custom">{{ ad.price }}€</span>
-            </a>
-        {% endfor %}
-        </ul>
+
+        <div class="row">
+            {% for ad in user.ads %}
+                {% include 'cards-template.html.twig' %}
+            {% endfor %}
+        </div>
+
 
         <div class="mt-5">
             <h2 class="main-title text-uppercase">Mes pokémon vendus</h2>
