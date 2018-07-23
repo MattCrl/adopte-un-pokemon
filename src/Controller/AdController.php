@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Ad;
+use App\Entity\Favorite;
 use App\Form\AdFiltersType;
 use App\Form\AdType;
+use App\Form\FavoriteType;
+use App\Repository\FavoriteRepository;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -82,11 +85,53 @@ class AdController extends Controller
     }
 
     /**
-     * @Route("/ad/{id}", name="ad_show", methods="GET")
+     * @Route("/ad/{id}", name="ad_show", methods="GET|POST")
+     * @param Request $request
+     * @param Ad $ad
+     * @return Response
      */
-    public function show(Ad $ad): Response
+    public function show(Request $request, Ad $ad, FavoriteRepository $favoriteRepository): Response
     {
-        return $this->render('ad/show.html.twig', ['ad' => $ad]);
+        // test fav
+        $form = $this->createForm(FavoriteType::class);
+        $form->handleRequest($request);
+
+        $user = $this->getUser();
+
+        $result = $favoriteRepository->findOneBy([
+            'user' => $user,
+            'ad' => $ad
+        ]);
+
+        $em = $this->getDoctrine()->getManager();
+
+        if ($form->isSubmitted() && $form->isValid() && $user != null) {
+            // If this ad isn't in favlist yet, add it | else , remove it
+            if ($result == null) {
+                $favorite = new Favorite();
+                $favorite->setUser($user);
+                $favorite->setAd($ad);
+                $em->persist($favorite);
+                $em->flush();
+
+                return $this->redirectToRoute('ad_show', ['id' => $ad->getId()]);
+
+            } else {
+                $em->remove($result);
+                $em->flush();
+
+                return $this->redirectToRoute('ad_show', ['id' => $ad->getId()]);
+            }
+
+
+
+        }
+
+        return $this->render('ad/show.html.twig', [
+            'ad' => $ad,
+            'form' => $form->createView(),
+            'result' => $result
+            ]);
     }
 
     /**
@@ -103,7 +148,7 @@ class AdController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('ad_edit', ['id' => $ad->getId()]);
+            return $this->redirectToRoute('ad_show', ['id' => $ad->getId()]);
         }
 
         if ($user === $adUser) {

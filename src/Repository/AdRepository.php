@@ -31,7 +31,8 @@ class AdRepository extends ServiceEntityRepository
 
     public function findAllQuery()
     {
-        return $this->createQueryBuilder('a');
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.id', 'DESC');
     }
 
     /**
@@ -51,6 +52,7 @@ class AdRepository extends ServiceEntityRepository
     public function getAdsLikeType($type)
     {
         return $this->createQueryBuilder('a')
+            ->orderBy('a.id', 'DESC')
             ->join('a.pokemon', 'p')
             ->where('p.type = :type')
             ->setParameter('type', $type)

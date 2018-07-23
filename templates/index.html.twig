@@ -6,13 +6,15 @@
 
 {% block body %}
 
-    {% for label, messages in app.flashes %}
-        {% for message in messages %}
-            <div class="alert alert-{{ label }}">
-                {{ message }}
-            </div>
+    <div class="container">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="mt-3 alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
         {% endfor %}
-    {% endfor %}
+    </div>
 
     <header class="header">
         <div class="container search-bar mt-5">
