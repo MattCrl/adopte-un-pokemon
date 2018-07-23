@@ -70,10 +70,16 @@ class Ad
      */
     private $price;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Favorite", mappedBy="ad")
+     */
+    private $favorites;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
         $this->messages = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
     }
 
     public function getId()
@@ -230,6 +236,37 @@ class Ad
     public function setPrice($price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Favorite[]
+     */
+    public function getFavorites(): Collection
+    {
+        return $this->favorites;
+    }
+
+    public function addFavorite(Favorite $favorite): self
+    {
+        if (!$this->favorites->contains($favorite)) {
+            $this->favorites[] = $favorite;
+            $favorite->setAd($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavorite(Favorite $favorite): self
+    {
+        if ($this->favorites->contains($favorite)) {
+            $this->favorites->removeElement($favorite);
+            // set the owning side to null (unless already changed)
+            if ($favorite->getAd() === $this) {
+                $favorite->setAd(null);
+            }
+        }
 
         return $this;
     }

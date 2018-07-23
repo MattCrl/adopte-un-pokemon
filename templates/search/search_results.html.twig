@@ -15,26 +15,8 @@
         {{ pagerfanta(my_pager, 'twitter_bootstrap4', { 'omitFirstPage': true}) }}
 
         <div class="row">
-            {% for result in my_pager.currentPageResults %}
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card hovercard cards-custom">
-                        <div class="cardheader">
-                        </div>
-                        <div class="avatar">
-                            <img alt="" src="{{ result.pokemon.image }}">
-                        </div>
-                        <div class="info">
-                            <div class="title font-weight-bold">
-                                <a target="_blank" href="https://scripteden.com/">{{ result.pokemon.name }}</a>
-                            </div>
-                            <div class="desc price-card mb-2">{{ result.price }}€</div>
-                            <div class=""><span class="badge badge-type badge-type-{{ result.pokemon.type }}">{{ result.pokemon.type | capitalize }}</span></div>
-                        </div>
-                        <div class="bottom">
-                            <a href="{{ path('ad_show', {'id': result.id}) }}" class="btn btn-primary btn-block mt-3">Voir l'annonce</a>
-                        </div>
-                    </div>
-                </div>
+            {% for ad in my_pager.currentPageResults %}
+                {% include 'cards-template.html.twig' %}
             {% endfor %}
         </div>
     </div>

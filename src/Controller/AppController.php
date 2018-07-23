@@ -76,6 +76,8 @@ class AppController extends Controller
     {
         $page = $request->query->get('page', 1);
 
+        $user = $this->getUser();
+
         $searched = $request->query->get('ad_search')['pokemon'];
         $results = $this->getDoctrine()->getRepository(Ad::class)->getAdsLikePokemonName($searched);
 
@@ -88,6 +90,7 @@ class AppController extends Controller
 
         return $this->render('search/search_results.html.twig', [
             'my_pager' => $pagerfanta,
+            'user' => $user
         ]);
     }
 
