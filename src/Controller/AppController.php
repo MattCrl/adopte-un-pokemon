@@ -50,18 +50,27 @@ class AppController extends Controller
     /**
      * Member Homepage
      *
-     * @Route("/member/dashboard", name="app_index_member")
+     * @Route("/member/ads_on_sell", name="app_ads_on_sell")
      * @Method("GET")
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexMemberAction()
+    public function memberAdsOnSell(Request $request)
     {
+        $userId = $this->getUser()->getId();
         $em = $this->getDoctrine()->getManager();
-        $ads = $em->getRepository(Ad::class)->findAll();
+        $ads = $em->getRepository(Ad::class)->findMemberAds($userId);
 
         $user = $this->getUser();
 
-        return $this->render('dashboard/index.html.twig', [
+        $page = $request->query->get('page', 1);
+
+        $adapter = new DoctrineORMAdapter($ads);
+        $pagerfanta = new Pagerfanta($adapter);
+        $pagerfanta->setMaxPerPage(8);
+        $pagerfanta->setCurrentPage($page);
+
+        return $this->render('dashboard/on_sell/index.html.twig', [
+            'my_pager' => $pagerfanta,
             'ads' => $ads,
             'user' => $user
         ]);

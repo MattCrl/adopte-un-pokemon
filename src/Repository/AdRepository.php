@@ -36,6 +36,19 @@ class AdRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param $userId
+     * @return \Doctrine\ORM\Query
+     */
+    public function findMemberAds($userId)
+    {
+        return $this->createQueryBuilder('a')
+            ->where('a.user = :user')
+            ->andWhere('a.isSold = false')
+            ->setParameter('user', $userId)
+            ->getQuery();
+    }
+
+    /**
      * @param $pokemon
      * @return \Doctrine\ORM\Query
      */

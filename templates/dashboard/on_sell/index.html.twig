@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/badges-type.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="banner">
+
+    </div>
+
+    <div class="container">
+        <div class="mt-5 mb-5">
+            <h1 class="text-uppercase">Mes pokémon en vente</h1>
+        </div>
+
+        {{ pagerfanta(my_pager, 'twitter_bootstrap4', { 'omitFirstPage': true}) }}
+
+        <div class="row">
+            {% for ad in my_pager %}
+                {% include 'cards-template.html.twig' %}
+            {% endfor %}
+        </div>
+
+
+
+    </div>
+{% endblock %}
