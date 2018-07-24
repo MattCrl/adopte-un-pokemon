@@ -92,12 +92,12 @@ class AdController extends Controller
      */
     public function show(Request $request, Ad $ad, FavoriteRepository $favoriteRepository): Response
     {
-        // test fav
         $form = $this->createForm(FavoriteType::class);
         $form->handleRequest($request);
 
         $user = $this->getUser();
 
+        // Check if this $ad is already added in favorite by this $user
         $result = $favoriteRepository->findOneBy([
             'user' => $user,
             'ad' => $ad
@@ -122,9 +122,6 @@ class AdController extends Controller
 
                 return $this->redirectToRoute('ad_show', ['id' => $ad->getId()]);
             }
-
-
-
         }
 
         return $this->render('ad/show.html.twig', [
