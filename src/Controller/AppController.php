@@ -10,7 +10,6 @@ namespace App\Controller;
 
 
 use App\Entity\Ad;
-use App\Form\AdFiltersType;
 use App\Form\AdSearchType;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -44,35 +43,6 @@ class AppController extends Controller
             'ads' => $ads,
             'user' => $user,
             'form' => $form->createView()
-        ]);
-    }
-
-    /**
-     * Member Homepage
-     *
-     * @Route("/member/ads_on_sell", name="app_ads_on_sell")
-     * @Method("GET")
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function memberAdsOnSell(Request $request)
-    {
-        $userId = $this->getUser()->getId();
-        $em = $this->getDoctrine()->getManager();
-        $ads = $em->getRepository(Ad::class)->findMemberAds($userId);
-
-        $user = $this->getUser();
-
-        $page = $request->query->get('page', 1);
-
-        $adapter = new DoctrineORMAdapter($ads);
-        $pagerfanta = new Pagerfanta($adapter);
-        $pagerfanta->setMaxPerPage(8);
-        $pagerfanta->setCurrentPage($page);
-
-        return $this->render('dashboard/on_sell/index.html.twig', [
-            'my_pager' => $pagerfanta,
-            'ads' => $ads,
-            'user' => $user
         ]);
     }
 
