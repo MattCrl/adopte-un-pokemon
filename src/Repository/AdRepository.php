@@ -27,6 +27,7 @@ class AdRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
             ->select('a')
+            ->where('a.isSold = false')
             ->orderBy('a.id', 'DESC')
             ->setMaxResults(8)
             ->getQuery()
@@ -41,6 +42,7 @@ class AdRepository extends ServiceEntityRepository
     public function findAllQuery()
     {
         return $this->createQueryBuilder('a')
+            ->where('a.isSold = false')
             ->orderBy('a.id', 'DESC');
     }
 

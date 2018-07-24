@@ -18,7 +18,25 @@
 
         <div class="row">
             {% for ad in my_pager %}
-                {% include 'cards-template.html.twig' %}
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card hovercard cards-custom">
+                        <div class="cardheader">
+                        </div>
+                        <div class="avatar">
+                            <img alt="" src="{{ ad.pokemon.image }}" style="filter: grayscale(100%);">
+                        </div>
+                        <div class="info">
+                            <div class="title font-weight-bold">
+                                <p>{{ ad.pokemon.name }}</p>
+                            </div>
+                            <div class="desc price-card mb-2">{{ ad.price }}€</div>
+                            <div class=""><span class="badge badge-type badge-secondary">{{ ad.pokemon.type | capitalize }}</span></div>
+
+                        </div>
+                        <div class="bottom">
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
         </div>
 
