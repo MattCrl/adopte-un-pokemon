@@ -23,6 +23,8 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 <i class="fas fa-trash-alt"></i> Pokémon vendu
                 </button>
+                <a href="{{ path('ad_edit', {'id': ad.id}) }}" class="btn btn-outline-primary"><i class="fas fa-edit"></i> Éditer</a>
+
             {% endif %}
 
             {% if app.user %}
