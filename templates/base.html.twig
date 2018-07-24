@@ -28,9 +28,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('ad_new') }}">Vendre</a>
                     </li>
-
-
-
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     {% if app.user %}
@@ -46,7 +43,7 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ path('app_index_member') }}">Mes pokémon en vente</a>
                                     <a class="dropdown-item" href="{{ path('app_index_member') }}">Mes pokémon vendus</a>
-                                    <a class="dropdown-item" href="{{ path('app_index_member') }}">Mes favoris</a>
+                                    <a class="dropdown-item" href="{{ path('app_member_fav') }}">Mes favoris</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ path('app_index_member') }}">Mon profil</a>
                                 </div>
