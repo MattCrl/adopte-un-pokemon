@@ -37,7 +37,6 @@ class AdRepository extends ServiceEntityRepository
     /**
      * It returns a query instead of a basic findAll that returns results
      * Used for pagerFanta pagination
-     * @return \Doctrine\ORM\QueryBuilder
      */
     public function findAllQuery()
     {

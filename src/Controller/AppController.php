@@ -32,7 +32,7 @@ class AppController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $lastAds = $em->getRepository(Ad::class)->getHeightLastAds();
-        $ads = $em->getRepository(Ad::class)->findAll();
+        $ads = $em->getRepository(Ad::class)->findAllQuery()->getQuery()->getResult();
 
         $user = $this->getUser();
 
