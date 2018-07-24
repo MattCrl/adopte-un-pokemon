@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/badges-type.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="banner">
+
+    </div>
+
+    <div class="container">
+        <h1 class="mt-5">Mes annonces favorites</h1>
+
+        <div class="row">
+            {% for fav in favorites %}
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card hovercard cards-custom">
+                        <div class="cardheader">
+                        </div>
+                        <div class="avatar">
+                            <img alt="" src="{{ fav.ad.pokemon.image }}">
+                        </div>
+                        <div class="info">
+                            <div class="title font-weight-bold">
+                                <a href="{{ path('ad_show', {'id': fav.ad.id}) }}">{{ fav.ad.pokemon.name }}</a>
+                            </div>
+                            <div class="desc price-card mb-2">{{ fav.ad.price }}€</div>
+                            <div class=""><span class="badge badge-type badge-type-{{ fav.ad.pokemon.type }}">{{ fav.ad.pokemon.type | capitalize }}</span></div>
+
+                        </div>
+                        <div class="bottom">
+
+                            {% if app.user and fav.ad.user.email == user.email %}
+                                <a href="{{ path('ad_show', {'id': fav.ad.id}) }}" class="btn btn-primary mt-1">Voir l'annonce</a>
+                                <a href="{{ path('ad_edit', {'id': fav.ad.id}) }}" class="btn btn-outline-primary mt-1"><i class="fas fa-edit"></i> Éditer</a>
+                            {% else %}
+                                <a href="{{ path('ad_show', {'id': fav.ad.id}) }}" class="btn btn-primary btn-block mt-1">Voir l'annonce</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
