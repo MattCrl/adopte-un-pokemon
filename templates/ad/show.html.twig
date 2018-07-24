@@ -23,7 +23,9 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 <i class="fas fa-trash-alt"></i> Pokémon vendu
                 </button>
+
                 <a href="{{ path('ad_edit', {'id': ad.id}) }}" class="btn btn-outline-primary"><i class="fas fa-edit"></i> Éditer</a>
+
 
             {% endif %}
 
@@ -46,8 +48,6 @@
             {% elseif ad.pokemon.id | length == 2 %}
                 <img class="img-fluid img-ad" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/0{{ ad.pokemon.id }}.png" alt="{{ ad.pokemon.name }}">
             {% elseif ad.pokemon.id | length == 3 %}
-                <img class="img-fluid img-ad" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{ ad.pokemon.id }}.png" alt="{{ ad.pokemon.name }}">
-            {% endif %}
 
                     <div class="description mt-3 mb-3">
                         <h2>Commentaires</h2>
@@ -90,7 +90,7 @@
                 </div>
             </div>
 
-        {% endif %}
+            {% endif %}
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -117,5 +117,6 @@
         </div>
 
     </div>
+    {% endif %}
 
 {% endblock %}
