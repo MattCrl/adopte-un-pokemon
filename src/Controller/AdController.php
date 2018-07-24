@@ -3,8 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Ad;
+use App\Entity\Favorite;
 use App\Form\AdFiltersType;
+use App\Form\AdSoldType;
 use App\Form\AdType;
+use App\Form\FavoriteType;
+use App\Repository\FavoriteRepository;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -82,11 +86,66 @@ class AdController extends Controller
     }
 
     /**
-     * @Route("/ad/{id}", name="ad_show", methods="GET")
+     * @Route("/ad/{id}", name="ad_show", methods="GET|POST")
+     * @param Request $request
+     * @param Ad $ad
+     * @return Response
      */
-    public function show(Ad $ad): Response
+    public function show(Request $request, Ad $ad, FavoriteRepository $favoriteRepository): Response
     {
-        return $this->render('ad/show.html.twig', ['ad' => $ad]);
+        $form = $this->createForm(FavoriteType::class);
+        $form->handleRequest($request);
+
+        $formSold = $this->createForm(AdSoldType::class);
+        $formSold->handleRequest($request);
+
+        $user = $this->getUser();
+        $adUser = $ad->getUser();
+
+        // Check if this $ad is already added in favorite by this $user
+        $result = $favoriteRepository->findOneBy([
+            'user' => $user,
+            'ad' => $ad
+        ]);
+
+        $em = $this->getDoctrine()->getManager();
+
+        // Pokemon Sold form
+        if ($formSold->isSubmitted() && $formSold->isValid() && $user != null && $user == $adUser) {
+            $ad->setIsSold(true);
+            $em->persist($ad);
+            $em->flush();
+
+            return $this->redirectToRoute('app_ads_sold');
+        }
+
+        // Fav List form
+        if ($form->isSubmitted() && $form->isValid() && $user != null) {
+            // If this ad isn't in favlist yet, add it | else , remove it
+            if ($result == null) {
+                $favorite = new Favorite();
+                $favorite->setUser($user);
+                $favorite->setAd($ad);
+                $em->persist($favorite);
+                $em->flush();
+
+                return $this->redirectToRoute('ad_show', ['id' => $ad->getId()]);
+
+            } else {
+                $em->remove($result);
+                $em->flush();
+
+                return $this->redirectToRoute('ad_show', ['id' => $ad->getId()]);
+            }
+        }
+
+        return $this->render('ad/show.html.twig', [
+            'ad' => $ad,
+            'form' => $form->createView(),
+            'formSold' => $formSold->createView(),
+            'result' => $result,
+            'user' => $user
+            ]);
     }
 
     /**
@@ -103,7 +162,7 @@ class AdController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('ad_edit', ['id' => $ad->getId()]);
+            return $this->redirectToRoute('ad_show', ['id' => $ad->getId()]);
         }
 
         if ($user === $adUser) {
@@ -118,20 +177,5 @@ class AdController extends Controller
         }
 
     }
-
-    /**
-     * @Route("/ad/{id}", name="ad_delete", methods="DELETE")
-     */
-    public function delete(Request $request, Ad $ad): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$ad->getId(), $request->request->get('_token'))) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($ad);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('ad_index');
-    }
-
 
 }

@@ -87,7 +87,14 @@ body {
 }
 
 .badge-price {
-  font-size: 40px;
+  font-size: 35px;
+}
+
+@media (max-width: 430px) {
+  .badge-price {
+    font-size: 20px;
+  }
+
 }
 
 
@@ -202,4 +209,16 @@ body {
   background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
   border: 1px solid #ced4da;
   padding: 20px;
+}
+
+
+// Ad
+
+.description {
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.img-ad {
+  border: 1px solid #f4f4f4;
 }

@@ -3,8 +3,12 @@
 {% block title %}Edit Ad{% endblock %}
 
 {% block body %}
+    <div class="banner">
+
+    </div>
+
     <div class="container">
-            <h1 class="mt-5 mb-3">Modifier mon annonce</h1>
+            <h1 class="mt-5 mb-3 text-uppercase">Modifier mon annonce</h1>
 
             {{ form_start(form) }}
             {{ form_widget(form) }}
@@ -13,7 +17,7 @@
 
 
             <a href="{{ path('ad_index') }}" class="btn btn-outline-primary mt-5">Revenir à la liste des annonces</a>
-            <a href="{{ path('app_index_member') }}" class="btn btn-outline-primary mt-5">Mes annonces</a>
+            <a href="{{ path('app_ads_on_sell') }}" class="btn btn-outline-primary mt-5">Mes annonces</a>
 
             {{ include('ad/_delete_form.html.twig') }}
 

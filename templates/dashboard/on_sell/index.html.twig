@@ -10,14 +10,19 @@
     </div>
 
     <div class="container">
-        <h1 class="mt-5 mb-3">Résultats</h1>
+        <div class="mt-5 mb-5">
+            <h1 class="text-uppercase">Mes pokémon en vente</h1>
+        </div>
 
         {{ pagerfanta(my_pager, 'twitter_bootstrap4', { 'omitFirstPage': true}) }}
 
         <div class="row">
-            {% for ad in my_pager.currentPageResults %}
+            {% for ad in my_pager %}
                 {% include 'cards-template.html.twig' %}
             {% endfor %}
         </div>
+
+
+
     </div>
 {% endblock %}

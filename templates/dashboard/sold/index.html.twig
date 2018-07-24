@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/badges-type.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="banner">
+
+    </div>
+
+    <div class="container">
+        <div class="mt-5 mb-5">
+            <h1 class="text-uppercase">Mes pokémon vendus</h1>
+        </div>
+
+        {{ pagerfanta(my_pager, 'twitter_bootstrap4', { 'omitFirstPage': true}) }}
+
+        <div class="row">
+            {% for ad in my_pager %}
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card hovercard cards-custom">
+                        <div class="cardheader">
+                        </div>
+                        <div class="avatar">
+                            <img alt="" src="{{ ad.pokemon.image }}" style="filter: grayscale(100%);">
+                        </div>
+                        <div class="info">
+                            <div class="title font-weight-bold">
+                                <p>{{ ad.pokemon.name }}</p>
+                            </div>
+                            <div class="desc price-card mb-2">{{ ad.price }}€</div>
+                            <div class=""><span class="badge badge-type badge-secondary">{{ ad.pokemon.type | capitalize }}</span></div>
+                        </div>
+
+                        <div class="bottom">
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <h2 class="mt-3">Somme gagnée grâce à adopteUnPokemon.com :</h2>
+
+        <span class="badge badge-primary badge-price">{{ sumPrice[0]['sumPrice'] }}€</span>
+
+
+    </div>
+{% endblock %}
