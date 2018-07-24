@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Ad;
 use App\Entity\Favorite;
 use App\Form\AdFiltersType;
+use App\Form\AdSoldType;
 use App\Form\AdType;
 use App\Form\FavoriteType;
 use App\Repository\FavoriteRepository;
@@ -95,7 +96,11 @@ class AdController extends Controller
         $form = $this->createForm(FavoriteType::class);
         $form->handleRequest($request);
 
+        $formSold = $this->createForm(AdSoldType::class);
+        $formSold->handleRequest($request);
+
         $user = $this->getUser();
+        $adUser = $ad->getUser();
 
         // Check if this $ad is already added in favorite by this $user
         $result = $favoriteRepository->findOneBy([
@@ -105,6 +110,16 @@ class AdController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
+        // Pokemon Sold form
+        if ($formSold->isSubmitted() && $formSold->isValid() && $user != null && $user == $adUser) {
+            $ad->setIsSold(true);
+            $em->persist($ad);
+            $em->flush();
+
+            return $this->redirectToRoute('app_index');
+        }
+
+        // Fav List form
         if ($form->isSubmitted() && $form->isValid() && $user != null) {
             // If this ad isn't in favlist yet, add it | else , remove it
             if ($result == null) {
@@ -127,7 +142,9 @@ class AdController extends Controller
         return $this->render('ad/show.html.twig', [
             'ad' => $ad,
             'form' => $form->createView(),
-            'result' => $result
+            'formSold' => $formSold->createView(),
+            'result' => $result,
+            'user' => $user
             ]);
     }
 
