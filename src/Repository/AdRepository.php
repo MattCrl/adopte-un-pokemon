@@ -19,6 +19,10 @@ class AdRepository extends ServiceEntityRepository
         parent::__construct($registry, Ad::class);
     }
 
+    /**
+     * It returns the eight lasts ads that have been posted on the website
+     * @return mixed
+     */
     public function getHeightLastAds()
     {
         return $this->createQueryBuilder('a')
@@ -29,6 +33,11 @@ class AdRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * It returns a query instead of a basic findAll that returns results
+     * Used for pagerFanta pagination
+     * @return \Doctrine\ORM\QueryBuilder
+     */
     public function findAllQuery()
     {
         return $this->createQueryBuilder('a')
@@ -49,6 +58,37 @@ class AdRepository extends ServiceEntityRepository
     }
 
     /**
+     * it returns every sold pokemon
+     * @param $userId
+     * @return \Doctrine\ORM\Query
+     */
+    public function findMemberAllSoldPokemon($userId)
+    {
+        return $this->createQueryBuilder('a')
+            ->where('a.user = :user')
+            ->andWhere('a.isSold = true')
+            ->setParameter('user', $userId)
+            ->getQuery();
+    }
+
+    /**
+     * Query to sum the price of pokemon sold by the user
+     * @param $userId
+     * @return mixed
+     */
+    public function sumSoldPrices($userId)
+    {
+        return $this->createQueryBuilder('a')
+            ->where('a.user = :user')
+            ->andWhere('a.isSold = true')
+            ->setParameter('user', $userId)
+            ->select('SUM(a.price) as sumPrice')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    /**
      * @param $pokemon
      * @return \Doctrine\ORM\Query
      */
@@ -62,6 +102,11 @@ class AdRepository extends ServiceEntityRepository
             ->getQuery();
     }
 
+    /**
+     * Query to filter ads by Type of pokemon
+     * @param $type
+     * @return \Doctrine\ORM\Query
+     */
     public function getAdsLikeType($type)
     {
         return $this->createQueryBuilder('a')
