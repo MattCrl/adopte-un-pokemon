@@ -116,7 +116,7 @@ class AdController extends Controller
             $em->persist($ad);
             $em->flush();
 
-            return $this->redirectToRoute('app_index');
+            return $this->redirectToRoute('app_ads_sold');
         }
 
         // Fav List form
@@ -177,20 +177,5 @@ class AdController extends Controller
         }
 
     }
-
-    /**
-     * @Route("/ad/{id}", name="ad_delete", methods="DELETE")
-     */
-    public function delete(Request $request, Ad $ad): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$ad->getId(), $request->request->get('_token'))) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($ad);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('ad_index');
-    }
-
 
 }
