@@ -18,7 +18,7 @@ class FavoriteController extends Controller
 
         $user= $this->getUser();
 
-        return $this->render('favorite/index.html.twig', [
+        return $this->render('dashboard/favorite/index.html.twig', [
             'user' => $user,
             'favorites' => $favorites
         ]);
