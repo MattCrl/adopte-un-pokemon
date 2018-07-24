@@ -18,6 +18,13 @@
 
             <a href="{{ path('ad_index') }}" class="btn btn-primary"><i class="fas fa-arrow-circle-left"></i> Retour</a>
 
+            <!-- Button trigger modal -->
+            {% if app.user and ad.user.email == user.email %}
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <i class="fas fa-trash-alt"></i> Pokémon vendu
+                </button>
+            {% endif %}
+
             {% if app.user %}
                 {{ form_start(form) }}
                 {{ form_widget(form) }}
@@ -40,7 +47,7 @@
                 <img class="img-fluid img-ad" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{ ad.pokemon.id }}.png" alt="{{ ad.pokemon.name }}">
             {% endif %}
 
-                    <div class="description mt-3">
+                    <div class="description mt-3 mb-3">
                         <h2>Commentaires</h2>
                         <hr>
                     </div>
@@ -82,6 +89,30 @@
             </div>
 
         {% endif %}
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Pokémon vendu</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Êtes-vous sûr de vouloir supprimer l'annonce ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        {{ form_start(formSold) }}
+                        {{ form_widget(formSold) }}
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-trash-alt"></i> Supprimer</button>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
