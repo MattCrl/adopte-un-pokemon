@@ -53,6 +53,11 @@
                     <div class="description mt-3 mb-3">
                         <h2>Commentaires</h2>
                         <hr>
+                        {% for com in commentaries %}
+                            <h4>{{ com.user.nickName }}</h4>
+                            <q>{{ com.content }}</q>
+                            <hr>
+                        {% endfor %}
                     </div>
 
                 </div>
