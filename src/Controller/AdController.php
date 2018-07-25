@@ -4,11 +4,15 @@ namespace App\Controller;
 
 use App\Entity\Ad;
 use App\Entity\Favorite;
+use App\Entity\Message;
+use App\Form\AdCommentaryType;
 use App\Form\AdFiltersType;
 use App\Form\AdSoldType;
 use App\Form\AdType;
 use App\Form\FavoriteType;
+use App\Repository\AdRepository;
 use App\Repository\FavoriteRepository;
+use App\Repository\MessageRepository;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -91,16 +95,41 @@ class AdController extends Controller
      * @param Ad $ad
      * @return Response
      */
-    public function show(Request $request, Ad $ad, FavoriteRepository $favoriteRepository): Response
+    public function show(Request $request, Ad $ad,
+                         FavoriteRepository $favoriteRepository,
+                         AdRepository $adRepository,
+                         MessageRepository $messageRepository): Response
     {
+        // Fav form
         $form = $this->createForm(FavoriteType::class);
         $form->handleRequest($request);
 
+        // Ad sold form
         $formSold = $this->createForm(AdSoldType::class);
         $formSold->handleRequest($request);
 
+        // Commentary form
+        $commentary = new Message();
+        $formCommentary = $this->createForm(AdCommentaryType::class, $commentary);
+        $formCommentary->handleRequest($request);
+
         $user = $this->getUser();
         $adUser = $ad->getUser();
+
+        // Commentaries & pagination com
+        $commentaries = $messageRepository->getMessagesQuery($ad->getId());
+        $page = $request->query->get('page', 1);
+
+        $adapter = new DoctrineORMAdapter($commentaries);
+        $pagerfanta = new Pagerfanta($adapter);
+        $pagerfanta->setMaxPerPage(4);
+        $pagerfanta->setCurrentPage($page);
+
+        // Related ads
+        $relatedAds = $adRepository->getRelatedAds($ad->getPokemon()->getType(), $ad->getId());
+
+        shuffle($relatedAds);
+        $relatedAds = array_slice($relatedAds, 0, 4);
 
         // Check if this $ad is already added in favorite by this $user
         $result = $favoriteRepository->findOneBy([
@@ -139,12 +168,31 @@ class AdController extends Controller
             }
         }
 
+        // Commentary form
+        if ($formCommentary->isSubmitted() && $formCommentary->isValid()) {
+            if ($user != null) {
+                $commentary->setAd($ad);
+                $commentary->setUser($user);
+                $em->persist($commentary);
+                $em->flush();
+            } else {
+                $this->addFlash('danger', 'Vous devez être identifié pour poster un commentaire.');
+            }
+
+
+            return $this->redirectToRoute('ad_show', ['id' => $ad->getId()]);
+        }
+
         return $this->render('ad/show.html.twig', [
             'ad' => $ad,
             'form' => $form->createView(),
             'formSold' => $formSold->createView(),
             'result' => $result,
-            'user' => $user
+            'user' => $user,
+            'relatedAds' => $relatedAds,
+            'commentaries' => $commentaries,
+            'formCommentary' => $formCommentary->createView(),
+            'my_pager' => $pagerfanta,
             ]);
     }
 

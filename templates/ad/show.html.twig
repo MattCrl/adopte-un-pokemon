@@ -10,32 +10,45 @@
     </div>
 
     <div class="container">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="mt-3 alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+    <div class="container">
         {% if ad.isSold %}
             <h1 class="mt-4">{{ ad.title }}</h1>
             <h2>Désolé, ce pokémon n'est plus à vendre</h2>
         {% else %}
                 <h1 class="mt-4">{{ ad.title | upper }}</h1>
 
-            <a href="{{ path('ad_index') }}" class="btn btn-primary"><i class="fas fa-arrow-circle-left"></i> Retour</a>
+            <a href="{{ path('ad_index') }}" class="btn btn-primary mb-1"><i class="fas fa-arrow-circle-left"></i> Retour</a>
 
             <!-- Button trigger modal -->
             {% if app.user and ad.user.email == user.email %}
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-primary mb-1" data-toggle="modal" data-target="#exampleModal">
                 <i class="fas fa-trash-alt"></i> Pokémon vendu
                 </button>
+
+                <a href="{{ path('ad_edit', {'id': ad.id}) }}" class="btn btn-outline-primary mb-1"><i class="fas fa-edit"></i> Éditer</a>
+
+
             {% endif %}
 
             {% if app.user %}
                 {{ form_start(form) }}
                 {{ form_widget(form) }}
                 {% if result == null %}
-                    <button type="submit" class="btn btn-outline-primary mt-1 mb-3"><i class="far fa-heart"></i> Ajouter l'annonce aux favoris</button>
+                    <button type="submit" class="btn btn-outline-primary mb-3"><i class="far fa-heart"></i> Ajouter l'annonce aux favoris</button>
                     {% else %}
-                    <button type="submit" class="btn btn-primary mt-1 mb-3"><i class="fas fa-heart"></i> Retirer l'annonce des favoris</button>
+                    <button type="submit" class="btn btn-primary mb-3"><i class="fas fa-heart"></i> Retirer l'annonce des favoris</button>
                 {% endif %}
                 {{ form_end(form) }}
             {% endif %}
-
 
             <div class="row">
                 <div class="col-12 col-sm-6">
@@ -50,6 +63,23 @@
                     <div class="description mt-3 mb-3">
                         <h2>Commentaires</h2>
                         <hr>
+
+                        {% if my_pager | length > 4 %}
+                        {{ pagerfanta(my_pager, 'twitter_bootstrap4', { 'omitFirstPage': true}) }}
+                        {% endif %}
+
+
+                        <ul class="list-group">
+                        {% for com in my_pager.currentPageResults %}
+                                <li class="list-group-item">
+                                    <img src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png" class="img-fluid float-left mr-3" style="max-height: 40px">
+                                    <h4>{{ com.user.nickName }}</h4>
+                                    <q>{{ com.content }}</q></li>
+                            {% else %}
+                            <p>Aucun commentaire</p>
+                        {% endfor %}
+                        </ul>
+
                     </div>
 
                 </div>
@@ -76,19 +106,38 @@
                         <hr>
                         <span class="badge badge-primary badge-price">{{ ad.price }}€</span>
                     </div>
+
+                    <div class="description mt-3">
+                        <h2>Poster un commentaire</h2>
+                        <hr>
+                        {{ form_start(formCommentary) }}
+                        {{ form_widget(formCommentary) }}
+                        <button type="submit" class="btn btn-primary mt-1 mb-3"><i class="fas fa-comment"></i> Poster</button>
+                        {{ form_end(formCommentary) }}
+                    </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12">
-                    <div class="description mt-3 mb-3">
-                        <h2>Annonces similaires</h2>
+
+                        <h2 class="mt-5">Annonces similaires</h2>
                         <hr>
-                    </div>
+                        <div class="row">
+                            {% if relatedAds | length == 0 %}
+                                <div class="col-12">
+                                    <h4 class="text-center mt-2 mb-5">Aucunes annonces en lien</h4>
+                                </div>
+                            {% else %}
+                                {% for ad in relatedAds %}
+                                    {% include 'cards-template.html.twig' %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
                 </div>
             </div>
 
-        {% endif %}
+            {% endif %}
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

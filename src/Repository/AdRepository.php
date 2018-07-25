@@ -37,7 +37,6 @@ class AdRepository extends ServiceEntityRepository
     /**
      * It returns a query instead of a basic findAll that returns results
      * Used for pagerFanta pagination
-     * @return \Doctrine\ORM\QueryBuilder
      */
     public function findAllQuery()
     {
@@ -118,4 +117,24 @@ class AdRepository extends ServiceEntityRepository
             ->setParameter('type', $type)
             ->getQuery();
     }
+
+
+    /**
+     * @param $type
+     * @param $adId
+     * @return mixed
+     */
+    public function getRelatedAds($type, $adId)
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.id', 'DESC')
+            ->join('a.pokemon', 'p')
+            ->where('p.type = :type')
+            ->andWhere('a.id != :adId')
+            ->setParameter('type', $type)
+            ->setParameter('adId', $adId)
+            ->getQuery()
+            ->getResult();
+    }
+
 }
