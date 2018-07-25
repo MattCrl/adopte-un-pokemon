@@ -40,7 +40,6 @@
                 {{ form_end(form) }}
             {% endif %}
 
-
             <div class="row">
                 <div class="col-12 col-sm-6">
             {% if ad.pokemon.id | length == 1 %}
@@ -48,6 +47,8 @@
             {% elseif ad.pokemon.id | length == 2 %}
                 <img class="img-fluid img-ad" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/0{{ ad.pokemon.id }}.png" alt="{{ ad.pokemon.name }}">
             {% elseif ad.pokemon.id | length == 3 %}
+                <img class="img-fluid img-ad" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{ ad.pokemon.id }}.png" alt="{{ ad.pokemon.name }}">
+            {% endif %}
 
                     <div class="description mt-3 mb-3">
                         <h2>Commentaires</h2>
@@ -83,10 +84,18 @@
 
             <div class="row">
                 <div class="col-12">
-                    <div class="description mt-3 mb-3">
-                        <h2>Annonces similaires</h2>
+
+                        <h2 class="mt-5">Annonces similaires</h2>
                         <hr>
-                    </div>
+                        <div class="row">
+                            {% if relatedAds | length == 0 %}
+                                <p class="text-center">Aucunes annonces en lien</p>
+                            {% else %}
+                                {% for ad in relatedAds %}
+                                    {% include 'cards-template.html.twig' %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
                 </div>
             </div>
 
@@ -117,6 +126,5 @@
         </div>
 
     </div>
-    {% endif %}
 
 {% endblock %}
