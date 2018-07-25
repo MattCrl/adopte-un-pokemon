@@ -89,7 +89,9 @@
                         <hr>
                         <div class="row">
                             {% if relatedAds | length == 0 %}
-                                <p class="text-center">Aucunes annonces en lien</p>
+                                <div class="col-12">
+                                    <h4 class="text-center mt-2 mb-5">Aucunes annonces en lien</h4>
+                                </div>
                             {% else %}
                                 {% for ad in relatedAds %}
                                     {% include 'cards-template.html.twig' %}
