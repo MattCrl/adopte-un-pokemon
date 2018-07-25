@@ -70,11 +70,13 @@
 
 
                         <ul class="list-group">
-                        {% for com in my_pager %}
+                        {% for com in my_pager.currentPageResults %}
                                 <li class="list-group-item">
                                     <img src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png" class="img-fluid float-left mr-3" style="max-height: 40px">
                                     <h4>{{ com.user.nickName }}</h4>
                                     <q>{{ com.content }}</q></li>
+                            {% else %}
+                            <p>Aucun commentaire</p>
                         {% endfor %}
                         </ul>
 

@@ -117,7 +117,6 @@ class AdController extends Controller
         $adUser = $ad->getUser();
 
         // Commentaries & pagination com
-        // $commentaries = $ad->getMessages();
         $commentaries = $messageRepository->getMessagesQuery($ad->getId());
         $page = $request->query->get('page', 1);
 
