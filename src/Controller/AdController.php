@@ -105,6 +105,9 @@ class AdController extends Controller
         $user = $this->getUser();
         $adUser = $ad->getUser();
 
+        // Commentaries
+        $commentaries = $ad->getMessages();
+
         // Related ads
         $relatedAds = $adRepository->getRelatedAds($ad->getPokemon()->getType(), $ad->getId());
 
@@ -154,7 +157,8 @@ class AdController extends Controller
             'formSold' => $formSold->createView(),
             'result' => $result,
             'user' => $user,
-            'relatedAds' => $relatedAds
+            'relatedAds' => $relatedAds,
+            'commentaries' => $commentaries,
             ]);
     }
 
