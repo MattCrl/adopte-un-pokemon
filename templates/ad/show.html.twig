@@ -84,6 +84,15 @@
                         <hr>
                         <span class="badge badge-primary badge-price">{{ ad.price }}€</span>
                     </div>
+
+                    <div class="description mt-3">
+                        <h2>Poster un commentaire</h2>
+                        <hr>
+                        {{ form_start(formCommentary) }}
+                        {{ form_widget(formCommentary) }}
+                        <button type="submit" class="btn btn-primary mt-1 mb-3"><i class="fas fa-comment"></i> Poster</button>
+                        {{ form_end(formCommentary) }}
+                    </div>
                 </div>
             </div>
 

@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Ad;
 use App\Entity\Favorite;
+use App\Entity\Message;
+use App\Form\AdCommentaryType;
 use App\Form\AdFiltersType;
 use App\Form\AdSoldType;
 use App\Form\AdType;
@@ -102,6 +104,11 @@ class AdController extends Controller
         $formSold = $this->createForm(AdSoldType::class);
         $formSold->handleRequest($request);
 
+        // Commentary form
+        $commentary = new Message();
+        $formCommentary = $this->createForm(AdCommentaryType::class, $commentary);
+        $formCommentary->handleRequest($request);
+
         $user = $this->getUser();
         $adUser = $ad->getUser();
 
@@ -151,6 +158,16 @@ class AdController extends Controller
             }
         }
 
+        // Commentary form
+        if ($formCommentary->isSubmitted() && $formCommentary->isValid() && $user != null) {
+            $commentary->setAd($ad);
+            $commentary->setUser($user);
+            $em->persist($commentary);
+            $em->flush();
+
+            return $this->redirectToRoute('ad_show', ['id' => $ad->getId()]);
+        }
+
         return $this->render('ad/show.html.twig', [
             'ad' => $ad,
             'form' => $form->createView(),
@@ -159,6 +176,7 @@ class AdController extends Controller
             'user' => $user,
             'relatedAds' => $relatedAds,
             'commentaries' => $commentaries,
+            'formCommentary' => $formCommentary->createView(),
             ]);
     }
 
