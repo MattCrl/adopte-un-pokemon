@@ -12,6 +12,7 @@ use App\Form\AdType;
 use App\Form\FavoriteType;
 use App\Repository\AdRepository;
 use App\Repository\FavoriteRepository;
+use App\Repository\MessageRepository;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -94,7 +95,10 @@ class AdController extends Controller
      * @param Ad $ad
      * @return Response
      */
-    public function show(Request $request, Ad $ad, FavoriteRepository $favoriteRepository, AdRepository $adRepository): Response
+    public function show(Request $request, Ad $ad,
+                         FavoriteRepository $favoriteRepository,
+                         AdRepository $adRepository,
+                         MessageRepository $messageRepository): Response
     {
         // Fav form
         $form = $this->createForm(FavoriteType::class);
@@ -112,8 +116,15 @@ class AdController extends Controller
         $user = $this->getUser();
         $adUser = $ad->getUser();
 
-        // Commentaries
-        $commentaries = $ad->getMessages();
+        // Commentaries & pagination com
+        // $commentaries = $ad->getMessages();
+        $commentaries = $messageRepository->getMessagesQuery($ad->getId());
+        $page = $request->query->get('page', 1);
+
+        $adapter = new DoctrineORMAdapter($commentaries);
+        $pagerfanta = new Pagerfanta($adapter);
+        $pagerfanta->setMaxPerPage(4);
+        $pagerfanta->setCurrentPage($page);
 
         // Related ads
         $relatedAds = $adRepository->getRelatedAds($ad->getPokemon()->getType(), $ad->getId());
@@ -159,11 +170,16 @@ class AdController extends Controller
         }
 
         // Commentary form
-        if ($formCommentary->isSubmitted() && $formCommentary->isValid() && $user != null) {
-            $commentary->setAd($ad);
-            $commentary->setUser($user);
-            $em->persist($commentary);
-            $em->flush();
+        if ($formCommentary->isSubmitted() && $formCommentary->isValid()) {
+            if ($user != null) {
+                $commentary->setAd($ad);
+                $commentary->setUser($user);
+                $em->persist($commentary);
+                $em->flush();
+            } else {
+                $this->addFlash('danger', 'Vous devez être identifié pour poster un commentaire.');
+            }
+
 
             return $this->redirectToRoute('ad_show', ['id' => $ad->getId()]);
         }
@@ -177,6 +193,7 @@ class AdController extends Controller
             'relatedAds' => $relatedAds,
             'commentaries' => $commentaries,
             'formCommentary' => $formCommentary->createView(),
+            'my_pager' => $pagerfanta,
             ]);
     }
 

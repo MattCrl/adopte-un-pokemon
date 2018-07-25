@@ -41,9 +41,10 @@ class AdType extends AbstractType
             ->add('price',
                             MoneyType::class)
             ->add('pokemon',
-                        TextType::class,
-                            ['attr' => ['autocomplete' => 'off'],
-                                'label' => 'Nom du Pokémon']);
+                        TextType::class, [
+                                'attr' => ['autocomplete' => 'off'],
+                                'label' => 'Nom du Pokémon'
+                            ]);
 
         $builder
             ->get('pokemon')
