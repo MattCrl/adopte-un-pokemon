@@ -118,10 +118,11 @@ class AdRepository extends ServiceEntityRepository
             ->getQuery();
     }
 
+
     /**
-     * Query to filter ads by Type of pokemon
      * @param $type
-     * @return \Doctrine\ORM\Query
+     * @param $adId
+     * @return mixed
      */
     public function getRelatedAds($type, $adId)
     {
