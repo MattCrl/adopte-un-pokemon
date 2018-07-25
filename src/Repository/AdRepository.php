@@ -117,4 +117,23 @@ class AdRepository extends ServiceEntityRepository
             ->setParameter('type', $type)
             ->getQuery();
     }
+
+    /**
+     * Query to filter ads by Type of pokemon
+     * @param $type
+     * @return \Doctrine\ORM\Query
+     */
+    public function getRelatedAds($type, $adId)
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.id', 'DESC')
+            ->join('a.pokemon', 'p')
+            ->where('p.type = :type')
+            ->andWhere('a.id != :adId')
+            ->setParameter('type', $type)
+            ->setParameter('adId', $adId)
+            ->getQuery()
+            ->getResult();
+    }
+
 }

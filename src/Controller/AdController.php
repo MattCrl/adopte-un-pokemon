@@ -8,6 +8,7 @@ use App\Form\AdFiltersType;
 use App\Form\AdSoldType;
 use App\Form\AdType;
 use App\Form\FavoriteType;
+use App\Repository\AdRepository;
 use App\Repository\FavoriteRepository;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -91,16 +92,24 @@ class AdController extends Controller
      * @param Ad $ad
      * @return Response
      */
-    public function show(Request $request, Ad $ad, FavoriteRepository $favoriteRepository): Response
+    public function show(Request $request, Ad $ad, FavoriteRepository $favoriteRepository, AdRepository $adRepository): Response
     {
+        // Fav form
         $form = $this->createForm(FavoriteType::class);
         $form->handleRequest($request);
 
+        // Ad sold form
         $formSold = $this->createForm(AdSoldType::class);
         $formSold->handleRequest($request);
 
         $user = $this->getUser();
         $adUser = $ad->getUser();
+
+        // Related ads
+        $relatedAds = $adRepository->getRelatedAds($ad->getPokemon()->getType(), $ad->getId());
+
+        shuffle($relatedAds);
+        $relatedAds = array_slice($relatedAds, 0, 4);
 
         // Check if this $ad is already added in favorite by this $user
         $result = $favoriteRepository->findOneBy([
@@ -144,7 +153,8 @@ class AdController extends Controller
             'form' => $form->createView(),
             'formSold' => $formSold->createView(),
             'result' => $result,
-            'user' => $user
+            'user' => $user,
+            'relatedAds' => $relatedAds
             ]);
     }
 

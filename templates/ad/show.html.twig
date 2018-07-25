@@ -23,7 +23,9 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 <i class="fas fa-trash-alt"></i> Pokémon vendu
                 </button>
+
                 <a href="{{ path('ad_edit', {'id': ad.id}) }}" class="btn btn-outline-primary"><i class="fas fa-edit"></i> Éditer</a>
+
 
             {% endif %}
 
@@ -37,7 +39,6 @@
                 {% endif %}
                 {{ form_end(form) }}
             {% endif %}
-
 
             <div class="row">
                 <div class="col-12 col-sm-6">
@@ -83,14 +84,24 @@
 
             <div class="row">
                 <div class="col-12">
-                    <div class="description mt-3 mb-3">
-                        <h2>Annonces similaires</h2>
+
+                        <h2 class="mt-5">Annonces similaires</h2>
                         <hr>
-                    </div>
+                        <div class="row">
+                            {% if relatedAds | length == 0 %}
+                                <div class="col-12">
+                                    <h4 class="text-center mt-2 mb-5">Aucunes annonces en lien</h4>
+                                </div>
+                            {% else %}
+                                {% for ad in relatedAds %}
+                                    {% include 'cards-template.html.twig' %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
                 </div>
             </div>
 
-        {% endif %}
+            {% endif %}
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
