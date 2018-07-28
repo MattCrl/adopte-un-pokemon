@@ -130,7 +130,9 @@
                                 </div>
                             {% else %}
                                 {% for ad in relatedAds %}
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
                                     {% include 'cards-template.html.twig' %}
+                                    </div>
                                 {% endfor %}
                             {% endif %}
                         </div>

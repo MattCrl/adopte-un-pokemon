@@ -30,3 +30,16 @@ Créer un site d'annonces entre particuliers :
 ## Mon projet
 Faire un site qui permet de déposer et consulter des annonces pour adopter un pokemon, sur le même principe que le site
 adopteunmec.com
+
+## Fonctionnalités actuelles
+*La plupart des fonctionnalités nécessitent d'être authentifié*
+- Création d'un compte / Authentification
+- Consulter une annonce
+- Création d'une annonce
+- Ajouter une annonce aux favoris
+- Rechercher une annonce par nom de Pokémon
+- Editer une annonce 
+- Espace membre
+- Déclarer une annonce vendue
+- Filtrer les annonces par type de Pokémon
+- Poster un commentaire sur une annonce

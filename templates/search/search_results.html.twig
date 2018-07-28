@@ -8,7 +8,6 @@
     <div class="banner">
 
     </div>
-    {{ dump(my_pager) }}
 
     <div class="container">
         <h1 class="mt-5 mb-3">Résultats</h1>
@@ -17,7 +16,9 @@
 
         <div class="row">
             {% for ad in my_pager.currentPageResults %}
-                {% include 'cards-template.html.twig' %}
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    {% include 'cards-template.html.twig' %}
+                </div>
             {% endfor %}
         </div>
     </div>

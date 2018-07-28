@@ -10,19 +10,34 @@
     </div>
 
     <div class="container">
-        <div class="mt-5 mb-5">
+        <div class="row">
+            {% include 'menu-template.html.twig' %}
+        <div class="col-12 col-lg-9 mt-5 mb-5">
             <h1 class="text-uppercase">Mes pokémon en vente</h1>
-        </div>
+
 
         {{ pagerfanta(my_pager, 'twitter_bootstrap4', { 'omitFirstPage': true}) }}
 
         <div class="row">
+
             {% for ad in my_pager %}
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
                 {% include 'cards-template.html.twig' %}
+            </div>
             {% endfor %}
+
+
         </div>
 
-
+        </div>
+        </div>
 
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        const onSell = document.querySelector('#group1');
+        onSell.classList.add("active");
+    </script>
 {% endblock %}
