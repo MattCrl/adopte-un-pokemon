@@ -70,7 +70,7 @@ class DashboardController extends Controller
 
         $adapter = new DoctrineORMAdapter($ads);
         $pagerfanta = new Pagerfanta($adapter);
-        $pagerfanta->setMaxPerPage(8);
+        $pagerfanta->setMaxPerPage(6);
         $pagerfanta->setCurrentPage($page);
 
         return $this->render('dashboard/sold/index.html.twig', [
@@ -78,6 +78,19 @@ class DashboardController extends Controller
             'ads' => $ads,
             'user' => $user,
             'sumPrice' => $sumPrice
+        ]);
+    }
+
+    /**
+     * @Route("member/profile", name="app_member_profile")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function myProfile()
+    {
+        $user = $this->getUser();
+
+        return $this->render('dashboard/profile/index.html.twig', [
+            'user' => $user,
         ]);
     }
 }

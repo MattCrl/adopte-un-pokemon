@@ -9,6 +9,14 @@ body {
   font-family: 'Didact Gothic', sans-serif;
 }
 
+.list-group-item:first-child {
+  border-radius: 0;
+}
+
+.list-group-item:last-child {
+  border-radius: 0;
+}
+
 .header {
   height: 900px;
   background-image: url("https://image.ibb.co/eujVBy/pokemon_15514_1920x1200.jpg");
@@ -155,6 +163,7 @@ body {
   overflow: hidden;
   text-align: center;
   background-color: rgba(214, 224, 226, 0.2);
+  border-radius: 0;
 }
 
 .card.hovercard .cardheader {
