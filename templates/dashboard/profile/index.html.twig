@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="banner">
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            {% include 'menu-template.html.twig' %}
+
+            <div class="col-12 col-lg-9">
+                <h1 class="text-uppercase mt-5 mb-5">Mon profil</h1>
+
+            <div class="description">
+                <h2>Mes informations personnelles</h2>
+                <hr>
+
+                <p><span class="font-weight-bold">Prénom</span> : {{ user.firstName }}</p>
+                <p><span class="font-weight-bold">Nom</span> : {{ user.lastName }}</p>
+                <p><span class="font-weight-bold">Adresse mail</span> : {{ user.email }}</p>
+                <p><span class="font-weight-bold">Pseudonyme</span> : {{ user.nickName }}</span></p>
+
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        const onSell = document.querySelector('#group4');
+        onSell.classList.add("active");
+    </script>
+{% endblock %}
