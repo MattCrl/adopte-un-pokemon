@@ -131,6 +131,7 @@ class AdRepository extends ServiceEntityRepository
             ->join('a.pokemon', 'p')
             ->where('p.type = :type')
             ->andWhere('a.id != :adId')
+            ->andWhere('a.isSold = false')
             ->setParameter('type', $type)
             ->setParameter('adId', $adId)
             ->getQuery()
